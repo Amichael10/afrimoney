@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Copy, Download, Check } from "lucide-react";
 import { Provider } from "@/data/providers";
+import { getRepoProviderLogo } from "@/data/providerLogoOverrides";
 
 interface ProviderCardProps {
   provider: Provider;
@@ -8,11 +9,27 @@ interface ProviderCardProps {
 
 const ProviderCard = ({ provider }: ProviderCardProps) => {
   const [copied, setCopied] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [repoLogoFailed, setRepoLogoFailed] = useState(false);
+  const [clearbitLogoFailed, setClearbitLogoFailed] = useState(false);
 
-  const logoUrl = provider.domain
+  const repoLogoUrl = getRepoProviderLogo(provider.name);
+  const clearbitLogoUrl = provider.domain
     ? `https://logo.clearbit.com/${provider.domain}`
     : null;
+
+  const logoUrl = !repoLogoFailed && repoLogoUrl
+    ? repoLogoUrl
+    : !clearbitLogoFailed && clearbitLogoUrl
+      ? clearbitLogoUrl
+      : null;
+
+  const handleLogoError = () => {
+    if (repoLogoUrl && !repoLogoFailed) {
+      setRepoLogoFailed(true);
+      return;
+    }
+    setClearbitLogoFailed(true);
+  };
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(provider.name);
@@ -21,15 +38,15 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   };
 
   const handleDownload = async () => {
-    if (logoUrl && !imgError) {
-      // Try downloading the real logo
+    if (logoUrl) {
       try {
         const res = await fetch(logoUrl);
         const blob = await res.blob();
+        const extension = blob.type.includes("svg") ? "svg" : "png";
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = `${provider.name.replace(/[^a-zA-Z0-9]/g, "_")}_logo.png`;
+        a.download = `${provider.name.replace(/[^a-zA-Z0-9]/g, "_")}_logo.${extension}`;
         a.click();
         URL.revokeObjectURL(url);
         return;
@@ -57,12 +74,12 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   return (
     <div className="group flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-all hover:shadow-md hover:border-primary/30">
       {/* Logo */}
-      {logoUrl && !imgError ? (
+      {logoUrl ? (
         <img
           src={logoUrl}
           alt={`${provider.name} logo`}
           className="h-10 w-10 shrink-0 rounded-lg object-contain bg-background p-0.5"
-          onError={() => setImgError(true)}
+          onError={handleLogoError}
           loading="lazy"
         />
       ) : (
