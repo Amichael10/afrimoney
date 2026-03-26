@@ -74,7 +74,7 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   return (
     <div className="group flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-all hover:shadow-md hover:border-primary/30">
       {/* Logo */}
-      {logoUrl && !imgError ? (
+      {logoUrl ? (
         <img
           src={logoUrl}
           alt={`${provider.name} logo`}
