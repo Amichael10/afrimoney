@@ -8,6 +8,11 @@ interface ProviderCardProps {
 
 const ProviderCard = ({ provider }: ProviderCardProps) => {
   const [copied, setCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
+  const logoUrl = provider.domain
+    ? `https://logo.clearbit.com/${provider.domain}`
+    : null;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(provider.name);
@@ -15,8 +20,24 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
     setTimeout(() => setCopied(false), 1500);
   };
 
-  const handleDownload = () => {
-    // Generate an SVG logo and download it
+  const handleDownload = async () => {
+    if (logoUrl && !imgError) {
+      // Try downloading the real logo
+      try {
+        const res = await fetch(logoUrl);
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${provider.name.replace(/[^a-zA-Z0-9]/g, "_")}_logo.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+        return;
+      } catch {
+        // fall through to SVG
+      }
+    }
+    // Fallback SVG download
     const size = 200;
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
       <rect width="${size}" height="${size}" rx="24" fill="${provider.color}"/>
@@ -36,15 +57,25 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   return (
     <div className="group flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-all hover:shadow-md hover:border-primary/30">
       {/* Logo */}
-      <div
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-bold font-display"
-        style={{
-          backgroundColor: provider.color,
-          color: provider.textColor || "#fff",
-        }}
-      >
-        {provider.shortName || provider.name.slice(0, 2)}
-      </div>
+      {logoUrl && !imgError ? (
+        <img
+          src={logoUrl}
+          alt={`${provider.name} logo`}
+          className="h-10 w-10 shrink-0 rounded-lg object-contain bg-background p-0.5"
+          onError={() => setImgError(true)}
+          loading="lazy"
+        />
+      ) : (
+        <div
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-bold font-display"
+          style={{
+            backgroundColor: provider.color,
+            color: provider.textColor || "#fff",
+          }}
+        >
+          {provider.shortName || provider.name.slice(0, 2)}
+        </div>
+      )}
 
       {/* Name */}
       <span className="flex-1 truncate text-sm font-medium text-card-foreground">
