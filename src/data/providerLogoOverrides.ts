@@ -2,6 +2,13 @@
 import airtelAfricaSvg from "@/assets/provider-logos/repo/airtelafri.svg";
 import mtnNigeriaSvg from "@/assets/provider-logos/repo/mtnn.svg";
 
+// === User-uploaded logos ===
+import afrimoneyPng from "@/assets/provider-logos/repo/afrimoney.png";
+import airtelMoneyUploadPng from "@/assets/provider-logos/repo/airtel-money-upload.png";
+import amolePng from "@/assets/provider-logos/repo/amole.png";
+import baridimobPng from "@/assets/provider-logos/repo/baridimob.png";
+import cashPlusPng from "@/assets/provider-logos/repo/cash-plus.png";
+
 // === PNG logos (PaymentAssets repo — high quality) ===
 import airtelMoneyPng from "@/assets/provider-logos/repo/airtel-money.png";
 import airteltigoPng from "@/assets/provider-logos/repo/airteltigo.png";
@@ -54,6 +61,11 @@ const logoMap: [RegExp, string][] = [
   [/carbon/i, carbonPng],
   [/fairmoney/i, fairmoneyPng],
   [/9psb|9mobile/i, ninePsbPng],
+  // User-uploaded logos
+  [/afrimoney|movicel/i, afrimoneyPng],
+  [/amole/i, amolePng],
+  [/baridimob|algérie poste/i, baridimobPng],
+  [/cash\s*plus/i, cashPlusPng],
   // Specific telco/payment brands
   [/airteltigo/i, airteltigoPng],
   [/halopesa|halotel/i, halopesaPng],
@@ -88,7 +100,7 @@ const logoMap: [RegExp, string][] = [
   // MTN MoMo
   [/mtn/i, mtnMomoPng],
   // Airtel Money (generic)
-  [/airtel/i, airtelMoneyPng],
+  [/airtel/i, airtelMoneyUploadPng],
 ];
 
 export const getRepoProviderLogo = (providerName: string): string | null => {
