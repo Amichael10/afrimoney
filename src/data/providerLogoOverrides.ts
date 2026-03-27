@@ -107,6 +107,10 @@ const logoMap: [RegExp, string][] = [
   [/mkesh/i, mkeshPng],
   [/yas.*mtn|mtn.*yas/i, yasMtnPng],
   [/zoona|spreadit/i, zoonaPng],
+  [/wave money/i, waveMoneyMmPng],
+  [/wizzit/i, wizzitPng],
+  [/zero pay/i, zeroPayPng],
+  [/wimpay/i, wimpayPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
