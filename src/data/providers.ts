@@ -77,6 +77,7 @@ export const countries: Country[] = [
       { name: "Capitec Pay", color: "#003B70", shortName: "CP", domain: "capitecbank.co.za" },
       { name: "TymeBank", color: "#FFD700", textColor: "#000", shortName: "TB", domain: "tymebank.co.za" },
       { name: "1voucher", color: "#FF4500", shortName: "1V", domain: "1voucher.co.za" },
+      { name: "WIZZIT", color: "#7AB800", shortName: "WZ", domain: "wizzit.co.za" },
     ],
   },
   {
@@ -276,6 +277,7 @@ export const countries: Country[] = [
       { name: "EcoCash (Econet)", color: "#006B3F", shortName: "EC", domain: "econet.co.zw" },
       { name: "OneMoney (NetOne)", color: "#0072CE", shortName: "OM", domain: "netone.co.zw" },
       { name: "Telecash (Telecel)", color: "#E60000", shortName: "TC", domain: "telecel.co.zw" },
+      { name: "WIMPAY", color: "#1E3A5F", shortName: "WP", domain: "wimpay.co.zw" },
     ],
   },
   {
@@ -412,6 +414,19 @@ export const countries: Country[] = [
     name: "Libya", flag: "🇱🇾", code: "LY",
     providers: [
       { name: "Tadawul", color: "#003366", shortName: "TD" },
+    ],
+  },
+  // ── Other Regions ──
+  {
+    name: "Myanmar", flag: "🇲🇲", code: "MM",
+    providers: [
+      { name: "Wave Money", color: "#FFD100", textColor: "#000", shortName: "WM", domain: "wavemoney.com.mm" },
+    ],
+  },
+  {
+    name: "South Korea", flag: "🇰🇷", code: "KR",
+    providers: [
+      { name: "Zero Pay", color: "#FF3B30", shortName: "ZP", domain: "zeropay.or.kr" },
     ],
   },
 ];

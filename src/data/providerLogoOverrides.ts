@@ -55,6 +55,10 @@ import expressoPng from "@/assets/provider-logos/repo/expresso.png";
 import mkeshPng from "@/assets/provider-logos/repo/mkesh.png";
 import yasMtnPng from "@/assets/provider-logos/repo/yas-mtn.png";
 import zoonaPng from "@/assets/provider-logos/repo/zoona.png";
+import waveMoneyMmPng from "@/assets/provider-logos/repo/wave-money-mm.png";
+import wizzitPng from "@/assets/provider-logos/repo/wizzit.png";
+import zeroPayPng from "@/assets/provider-logos/repo/zero-pay.png";
+import wimpayPng from "@/assets/provider-logos/repo/wimpay.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -103,6 +107,10 @@ const logoMap: [RegExp, string][] = [
   [/mkesh/i, mkeshPng],
   [/yas.*mtn|mtn.*yas/i, yasMtnPng],
   [/zoona|spreadit/i, zoonaPng],
+  [/wave money/i, waveMoneyMmPng],
+  [/wizzit/i, wizzitPng],
+  [/zero pay/i, zeroPayPng],
+  [/wimpay/i, wimpayPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
