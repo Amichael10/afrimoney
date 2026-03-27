@@ -72,6 +72,7 @@ import telecomNamibiaJpg from "@/assets/provider-logos/repo/telecom-namibia.jpg"
 import eswatiniMobilePng from "@/assets/provider-logos/repo/eswatini-mobile.png";
 import mytMoneyPng from "@/assets/provider-logos/repo/myt-money.png";
 import emtelPng from "@/assets/provider-logos/repo/emtel.png";
+import telebirrPng from "@/assets/provider-logos/repo/telebirr.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -137,6 +138,7 @@ const logoMap: [RegExp, string][] = [
   [/e-mali|eswatini mobile/i, eswatiniMobilePng],
   [/myt money|mauritius telecom/i, mytMoneyPng],
   [/emtel/i, emtelPng],
+  [/telebirr|ethio telecom/i, telebirrPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
