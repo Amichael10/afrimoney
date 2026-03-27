@@ -65,6 +65,8 @@ import ecocashPng from "@/assets/provider-logos/repo/ecocash.png";
 import telecashZwPng from "@/assets/provider-logos/repo/telecash-zw.png";
 import oneMoneyPng from "@/assets/provider-logos/repo/onemoney.png";
 import mascomPng from "@/assets/provider-logos/repo/mascom.png";
+import smegaPng from "@/assets/provider-logos/repo/smega.png";
+import mtcMarisPng from "@/assets/provider-logos/repo/mtc-maris.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
