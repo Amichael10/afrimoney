@@ -68,6 +68,7 @@ import mascomPng from "@/assets/provider-logos/repo/mascom.png";
 import smegaPng from "@/assets/provider-logos/repo/smega.png";
 import mtcMarisPng from "@/assets/provider-logos/repo/mtc-maris.png";
 import easywalletPng from "@/assets/provider-logos/repo/easywallet.png";
+import telecomNamibiaJpg from "@/assets/provider-logos/repo/telecom-namibia.jpg";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
