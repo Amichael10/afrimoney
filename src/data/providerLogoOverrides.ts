@@ -138,6 +138,7 @@ const logoMap: [RegExp, string][] = [
   [/e-mali|eswatini mobile/i, eswatiniMobilePng],
   [/myt money|mauritius telecom/i, mytMoneyPng],
   [/emtel/i, emtelPng],
+  [/telebirr|ethio telecom/i, telebirrPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
