@@ -61,6 +61,11 @@ const logoMap: [RegExp, string][] = [
   [/carbon/i, carbonPng],
   [/fairmoney/i, fairmoneyPng],
   [/9psb|9mobile/i, ninePsbPng],
+  // User-uploaded logos
+  [/afrimoney|movicel/i, afrimoneyPng],
+  [/amole/i, amolePng],
+  [/baridimob|algérie poste/i, baridimobPng],
+  [/cash\s*plus/i, cashPlusPng],
   // Specific telco/payment brands
   [/airteltigo/i, airteltigoPng],
   [/halopesa|halotel/i, halopesaPng],
