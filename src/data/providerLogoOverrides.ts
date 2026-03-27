@@ -85,6 +85,7 @@ import mattelPng from "@/assets/provider-logos/repo/mattel.png";
 import mauritelPng from "@/assets/provider-logos/repo/mauritel.png";
 import tadawulPng from "@/assets/provider-logos/repo/tadawul.png";
 import mpesaDrcPng from "@/assets/provider-logos/repo/mpesa-drc.png";
+import mpesaTzPng from "@/assets/provider-logos/repo/mpesa-tz.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -164,6 +165,7 @@ const logoMap: [RegExp, string][] = [
   [/tadawul/i, tadawulPng],
   // M-Pesa / Vodacom
   [/m-pesa.*drc|vodacom.*cd/i, mpesaDrcPng],
+  [/m-pesa.*tanzania|vodacom.*tz/i, mpesaTzPng],
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
   [/orange money/i, orangeMoneyPng],
