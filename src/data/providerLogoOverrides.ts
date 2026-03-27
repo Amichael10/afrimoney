@@ -64,6 +64,7 @@ import marocTelecomJpg from "@/assets/provider-logos/repo/maroc-telecom.jpg";
 import ecocashPng from "@/assets/provider-logos/repo/ecocash.png";
 import telecashZwPng from "@/assets/provider-logos/repo/telecash-zw.png";
 import oneMoneyPng from "@/assets/provider-logos/repo/onemoney.png";
+import mascomPng from "@/assets/provider-logos/repo/mascom.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -121,6 +122,7 @@ const logoMap: [RegExp, string][] = [
   [/ecocash|econet/i, ecocashPng],
   [/onemoney|netone/i, oneMoneyPng],
   [/telecash(?!.*telecel cash)/i, telecashZwPng],
+  [/mascom|myzaka/i, mascomPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
