@@ -118,6 +118,9 @@ const logoMap: [RegExp, string][] = [
   [/wizzit/i, wizzitPng],
   [/zero pay/i, zeroPayPng],
   [/wimpay/i, wimpayPng],
+  [/ecocash|econet/i, ecocashPng],
+  [/onemoney|netone/i, oneMoneyPng],
+  [/telecash(?!.*telecel cash)/i, telecashZwPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
