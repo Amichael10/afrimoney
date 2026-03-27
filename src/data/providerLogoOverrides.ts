@@ -152,6 +152,7 @@ const logoMap: [RegExp, string][] = [
   [/e-dahab|edahab/i, edahabPng],
   [/digicash|digitel.*south sudan/i, digitelPng],
   [/huri money|comores telecom/i, comoresTelecomPng],
+  [/mvola.*cv|cv móvel/i, mvolaCvPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
