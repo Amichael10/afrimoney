@@ -59,6 +59,8 @@ import waveMoneyMmPng from "@/assets/provider-logos/repo/wave-money-mm.png";
 import wizzitPng from "@/assets/provider-logos/repo/wizzit.png";
 import zeroPayPng from "@/assets/provider-logos/repo/zero-pay.png";
 import wimpayPng from "@/assets/provider-logos/repo/wimpay.png";
+import tKashPng from "@/assets/provider-logos/repo/t-kash.png";
+import marocTelecomJpg from "@/assets/provider-logos/repo/maroc-telecom.jpg";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -101,6 +103,8 @@ const logoMap: [RegExp, string][] = [
   [/juice.*mcb|mcb/i, mcbPng],
   [/evc plus|hormuud/i, hormuudPng],
   [/safaricom/i, safaricomPng],
+  [/t-kash|t kash|tkash/i, tKashPng],
+  [/maroc telecom/i, marocTelecomJpg],
   [/wave/i, wavePng],
   [/d-money|djibouti telecom/i, dMoneyPng],
   [/expresso/i, expressoPng],
