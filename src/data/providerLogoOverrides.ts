@@ -103,6 +103,8 @@ const logoMap: [RegExp, string][] = [
   [/juice.*mcb|mcb/i, mcbPng],
   [/evc plus|hormuud/i, hormuudPng],
   [/safaricom/i, safaricomPng],
+  [/t-kash|t kash|tkash/i, tKashPng],
+  [/maroc telecom/i, marocTelecomJpg],
   [/wave/i, wavePng],
   [/d-money|djibouti telecom/i, dMoneyPng],
   [/expresso/i, expressoPng],
