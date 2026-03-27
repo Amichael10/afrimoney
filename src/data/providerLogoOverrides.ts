@@ -165,6 +165,8 @@ const logoMap: [RegExp, string][] = [
   [/mattel money/i, mattelPng],
   [/masrvi|mauritel/i, mauritelPng],
   [/tadawul/i, tadawulPng],
+  [/fawry/i, fawryPng],
+  [/we\s*pay|telecom egypt/i, wepayPng],
   // M-Pesa / Vodacom
   [/m-pesa.*drc|vodacom.*cd/i, mpesaDrcPng],
   [/m-pesa.*tanzania|vodacom.*tz/i, mpesaTzPng],
