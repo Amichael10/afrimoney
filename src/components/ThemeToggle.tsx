@@ -15,7 +15,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(next)}
-      className="rounded-lg p-2 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+      className="rounded-md border-2 border-foreground p-2 text-foreground shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card"
       title={`Switch to ${next} mode`}
     >
       <Icon className="h-[18px] w-[18px]" />

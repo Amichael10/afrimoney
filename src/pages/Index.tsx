@@ -41,17 +41,12 @@ const Index = () => {
   const filtered = useMemo(() => {
     let source = activeRegion && regions[activeRegion] ? regions[activeRegion] : countries;
 
-    // Status filter
     if (statusFilter !== "all") {
       source = source
-        .map((c) => ({
-          ...c,
-          providers: c.providers.filter((p) => p.status === statusFilter),
-        }))
+        .map((c) => ({ ...c, providers: c.providers.filter((p) => p.status === statusFilter) }))
         .filter((c) => c.providers.length > 0);
     }
 
-    // Search
     if (search.trim()) {
       const q = search.toLowerCase();
       source = source
@@ -64,7 +59,6 @@ const Index = () => {
         .filter((c) => c.providers.length > 0);
     }
 
-    // Sort
     if (sortBy === "alphabetical") {
       source = [...source].sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortBy === "country") {
@@ -86,17 +80,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="relative overflow-hidden border-b border-border">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-accent/5" />
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
-          backgroundSize: '24px 24px',
-        }} />
+      <header className="relative border-b-2 border-foreground">
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-background to-primary/5" />
 
         {/* Top nav */}
         <div className="relative container mx-auto max-w-6xl px-4 pt-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary shadow-sm">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-foreground bg-primary shadow-brutal-sm">
               <Smartphone className="h-4.5 w-4.5 text-primary-foreground" />
             </div>
             <span className="font-display text-lg font-bold text-foreground tracking-tight hidden sm:inline">AfriPay Directory</span>
@@ -106,19 +96,18 @@ const Index = () => {
 
         <div className="relative container mx-auto max-w-6xl px-4 py-10 sm:py-14">
           <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-            <h1 className="font-display text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl tracking-tight">
-              African Mobile Money <span className="text-primary">Directory</span>
+            <h1 className="font-display text-3xl font-black text-foreground sm:text-4xl lg:text-5xl tracking-tight uppercase">
+              African Mobile Money <span className="bg-primary text-primary-foreground px-2 py-0.5 rounded-md inline-block -rotate-1">Directory</span>
             </h1>
-            <p className="mt-3 text-muted-foreground text-base sm:text-lg max-w-lg">
+            <p className="mt-4 text-muted-foreground text-base sm:text-lg max-w-lg">
               The open-source reference for mobile money providers across Africa. Built for developers and designers building fintech products.
             </p>
-            <div className="flex items-center gap-6 mt-5 text-sm">
-              <div className="flex items-center gap-1.5 text-foreground font-medium">
+            <div className="flex items-center gap-4 mt-5">
+              <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
                 <Globe className="h-4 w-4 text-primary" />
                 <span>{countries.length} Countries</span>
               </div>
-              <div className="h-4 w-px bg-border" />
-              <div className="flex items-center gap-1.5 text-foreground font-medium">
+              <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
                 <Smartphone className="h-4 w-4 text-accent" />
                 <span>{totalProviders} Providers</span>
               </div>
@@ -132,7 +121,7 @@ const Index = () => {
                 placeholder="Search providers, countries, features..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full rounded-xl border border-input bg-card py-3.5 pl-11 pr-10 text-sm text-foreground shadow-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all"
+                className="w-full rounded-md border-2 border-foreground bg-card py-3.5 pl-11 pr-10 text-sm text-foreground shadow-brutal placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
               />
               {search && (
                 <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-muted-foreground hover:text-foreground transition-colors">
@@ -145,14 +134,14 @@ const Index = () => {
       </header>
 
       {/* Region Tabs + Filters */}
-      <div className="border-b border-border bg-card/50 sticky top-0 z-10 backdrop-blur-md">
+      <div className="border-b-2 border-foreground bg-card sticky top-0 z-10">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex items-center gap-2 py-2">
-            <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide flex-1 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide flex-1 -mx-4 px-4 sm:mx-0 sm:px-0">
               <button
                 onClick={() => { setActiveRegion(null); scrollToContent(); }}
-                className={`shrink-0 rounded-lg px-3 py-2 text-sm font-medium transition-all ${
-                  activeRegion === null ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                className={`shrink-0 rounded-md px-3 py-2 text-sm font-bold transition-all border-2 ${
+                  activeRegion === null ? "border-foreground bg-primary text-primary-foreground shadow-brutal-sm" : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
                 All
@@ -161,12 +150,12 @@ const Index = () => {
                 <button
                   key={region}
                   onClick={() => { setActiveRegion(region); scrollToContent(); }}
-                  className={`shrink-0 rounded-lg px-3 py-2 text-sm font-medium transition-all flex items-center gap-1.5 ${
-                    activeRegion === region ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  className={`shrink-0 rounded-md px-3 py-2 text-sm font-bold transition-all flex items-center gap-1.5 border-2 ${
+                    activeRegion === region ? "border-foreground bg-primary text-primary-foreground shadow-brutal-sm" : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {region}
-                  <span className={`text-xs rounded-full px-1.5 py-0.5 ${
+                  <span className={`text-xs rounded px-1.5 py-0.5 font-bold ${
                     activeRegion === region ? "bg-primary-foreground/20 text-primary-foreground" : "bg-muted text-muted-foreground"
                   }`}>
                     {regionCountries.length}
@@ -176,7 +165,7 @@ const Index = () => {
             </div>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`shrink-0 rounded-lg p-2 text-sm transition-all ${showFilters ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}
+              className={`shrink-0 rounded-md p-2 text-sm transition-all border-2 ${showFilters ? "border-foreground bg-primary text-primary-foreground shadow-brutal-sm" : "border-transparent text-muted-foreground hover:text-foreground hover:bg-muted"}`}
             >
               <SlidersHorizontal className="h-4 w-4" />
             </button>
@@ -184,30 +173,30 @@ const Index = () => {
 
           {/* Expandable filters */}
           {showFilters && (
-            <div className="pb-3 flex flex-wrap items-center gap-4 border-t border-border/50 pt-3">
+            <div className="pb-3 flex flex-wrap items-center gap-4 border-t-2 border-foreground/20 pt-3">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Sort:</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Sort:</span>
                 {(["region", "alphabetical", "country"] as SortOption[]).map((opt) => (
                   <button
                     key={opt}
                     onClick={() => setSortBy(opt)}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                      sortBy === opt ? "bg-foreground text-background" : "bg-muted text-muted-foreground hover:text-foreground"
+                    className={`rounded-md px-2.5 py-1 text-xs font-bold transition-colors border-2 ${
+                      sortBy === opt ? "border-foreground bg-foreground text-background shadow-brutal-sm" : "border-transparent bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {opt === "country" ? "Most Providers" : opt.charAt(0).toUpperCase() + opt.slice(1)}
                   </button>
                 ))}
               </div>
-              <div className="h-4 w-px bg-border" />
+              <div className="h-6 w-0.5 bg-foreground/20" />
               <div className="flex items-center gap-2">
-                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Status:</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Status:</span>
                 {(["all", "active", "inactive"] as StatusFilter[]).map((opt) => (
                   <button
                     key={opt}
                     onClick={() => setStatusFilter(opt)}
-                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
-                      statusFilter === opt ? "bg-foreground text-background" : "bg-muted text-muted-foreground hover:text-foreground"
+                    className={`rounded-md px-2.5 py-1 text-xs font-bold transition-colors border-2 ${
+                      statusFilter === opt ? "border-foreground bg-foreground text-background shadow-brutal-sm" : "border-transparent bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {opt.charAt(0).toUpperCase() + opt.slice(1)}
@@ -224,15 +213,15 @@ const Index = () => {
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
             {hasActiveFilters ? (
-              <>Showing <span className="font-semibold text-foreground">{filteredProviders}</span> providers in <span className="font-semibold text-foreground">{filtered.length}</span> countries</>
+              <>Showing <span className="font-bold text-foreground">{filteredProviders}</span> providers in <span className="font-bold text-foreground">{filtered.length}</span> countries</>
             ) : (
-              <>Browse all <span className="font-semibold text-foreground">{totalProviders}</span> providers</>
+              <>Browse all <span className="font-bold text-foreground">{totalProviders}</span> providers</>
             )}
           </p>
           {hasActiveFilters && (
             <button
               onClick={() => { setSearch(""); setActiveRegion(null); setStatusFilter("all"); }}
-              className="text-sm text-primary hover:text-primary/80 font-medium flex items-center gap-1 transition-colors"
+              className="text-sm text-primary hover:text-primary/80 font-bold flex items-center gap-1 transition-colors"
             >
               Clear filters <X className="h-3.5 w-3.5" />
             </button>
@@ -244,14 +233,14 @@ const Index = () => {
       <main className="container mx-auto max-w-6xl px-4 pb-16 pt-2">
         {filtered.length === 0 ? (
           <div className="py-20 text-center">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-muted">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-md border-2 border-foreground bg-muted shadow-brutal">
               <Search className="h-7 w-7 text-muted-foreground" />
             </div>
-            <h3 className="font-display text-lg font-semibold text-foreground">No results found</h3>
+            <h3 className="font-display text-lg font-bold text-foreground">No results found</h3>
             <p className="mt-1 text-muted-foreground">Try a different search term or clear filters</p>
             <button
               onClick={() => { setSearch(""); setActiveRegion(null); setStatusFilter("all"); }}
-              className="mt-4 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="mt-4 rounded-md border-2 border-foreground bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
             >
               Clear all filters
             </button>
@@ -266,16 +255,16 @@ const Index = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 py-8">
+      <footer className="border-t-2 border-foreground bg-card py-8">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary">
+              <div className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-foreground bg-primary">
                 <Smartphone className="h-3.5 w-3.5 text-primary-foreground" />
               </div>
-              <span className="font-display text-sm font-semibold text-foreground">AfriPay Directory</span>
+              <span className="font-display text-sm font-bold text-foreground">AfriPay Directory</span>
             </div>
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {countries.length} countries
             </p>
           </div>
