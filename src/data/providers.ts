@@ -657,7 +657,7 @@ export const countries: Country[] = [
         website: "https://combanketh.et/cbe-birr/",
         coverage: {
           regions: ["Ethiopia"],
-          platforms: ["USSD", "Mobile App (Android)", "Agent Network"],
+          platforms: ["USSD", "Android", "Agent Network"],
           ussdCode: "*847#",
           languages: ["Amharic", "English"],
         },
