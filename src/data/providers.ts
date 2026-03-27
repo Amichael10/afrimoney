@@ -77,6 +77,7 @@ export const countries: Country[] = [
       { name: "Capitec Pay", color: "#003B70", shortName: "CP", domain: "capitecbank.co.za" },
       { name: "TymeBank", color: "#FFD700", textColor: "#000", shortName: "TB", domain: "tymebank.co.za" },
       { name: "1voucher", color: "#FF4500", shortName: "1V", domain: "1voucher.co.za" },
+      { name: "WIZZIT", color: "#7AB800", shortName: "WZ", domain: "wizzit.co.za" },
     ],
   },
   {
