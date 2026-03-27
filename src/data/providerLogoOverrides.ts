@@ -100,7 +100,7 @@ const logoMap: [RegExp, string][] = [
   // MTN MoMo
   [/mtn/i, mtnMomoPng],
   // Airtel Money (generic)
-  [/airtel/i, airtelMoneyPng],
+  [/airtel/i, airtelMoneyUploadPng],
 ];
 
 export const getRepoProviderLogo = (providerName: string): string | null => {
