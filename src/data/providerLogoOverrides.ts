@@ -53,6 +53,8 @@ import dMoneyPng from "@/assets/provider-logos/repo/d-money.png";
 import eMolaPng from "@/assets/provider-logos/repo/e-mola.png";
 import expressoPng from "@/assets/provider-logos/repo/expresso.png";
 import mkeshPng from "@/assets/provider-logos/repo/mkesh.png";
+import yasMtnPng from "@/assets/provider-logos/repo/yas-mtn.png";
+import zoonaPng from "@/assets/provider-logos/repo/zoona.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -99,6 +101,8 @@ const logoMap: [RegExp, string][] = [
   [/d-money|djibouti telecom/i, dMoneyPng],
   [/expresso/i, expressoPng],
   [/mkesh/i, mkeshPng],
+  [/yas.*mtn|mtn.*yas/i, yasMtnPng],
+  [/zoona|spreadit/i, zoonaPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
