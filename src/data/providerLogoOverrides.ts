@@ -2,6 +2,13 @@
 import airtelAfricaSvg from "@/assets/provider-logos/repo/airtelafri.svg";
 import mtnNigeriaSvg from "@/assets/provider-logos/repo/mtnn.svg";
 
+// === User-uploaded logos ===
+import afrimoneyPng from "@/assets/provider-logos/repo/afrimoney.png";
+import airtelMoneyUploadPng from "@/assets/provider-logos/repo/airtel-money-upload.png";
+import amolePng from "@/assets/provider-logos/repo/amole.png";
+import baridimobPng from "@/assets/provider-logos/repo/baridimob.png";
+import cashPlusPng from "@/assets/provider-logos/repo/cash-plus.png";
+
 // === PNG logos (PaymentAssets repo — high quality) ===
 import airtelMoneyPng from "@/assets/provider-logos/repo/airtel-money.png";
 import airteltigoPng from "@/assets/provider-logos/repo/airteltigo.png";
