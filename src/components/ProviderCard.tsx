@@ -99,7 +99,7 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
       </span>
 
       {/* Actions */}
-      <div className="flex shrink-0 gap-0.5 opacity-0 transition-all duration-200 group-hover:opacity-100">
+      <div className="flex shrink-0 gap-0.5">
         <button
           onClick={handleCopy}
           className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
