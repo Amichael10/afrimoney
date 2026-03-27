@@ -52,6 +52,7 @@ import wavePng from "@/assets/provider-logos/repo/wave.png";
 import dMoneyPng from "@/assets/provider-logos/repo/d-money.png";
 import eMolaPng from "@/assets/provider-logos/repo/e-mola.png";
 import expressoPng from "@/assets/provider-logos/repo/expresso.png";
+import mkeshPng from "@/assets/provider-logos/repo/mkesh.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
