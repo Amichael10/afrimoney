@@ -163,6 +163,7 @@ const logoMap: [RegExp, string][] = [
   [/masrvi|mauritel/i, mauritelPng],
   [/tadawul/i, tadawulPng],
   // M-Pesa / Vodacom
+  [/m-pesa.*drc|vodacom.*cd/i, mpesaDrcPng],
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
   [/orange money/i, orangeMoneyPng],
