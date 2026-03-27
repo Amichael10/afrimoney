@@ -59,6 +59,8 @@ import waveMoneyMmPng from "@/assets/provider-logos/repo/wave-money-mm.png";
 import wizzitPng from "@/assets/provider-logos/repo/wizzit.png";
 import zeroPayPng from "@/assets/provider-logos/repo/zero-pay.png";
 import wimpayPng from "@/assets/provider-logos/repo/wimpay.png";
+import tKashPng from "@/assets/provider-logos/repo/t-kash.png";
+import marocTelecomJpg from "@/assets/provider-logos/repo/maroc-telecom.jpg";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
