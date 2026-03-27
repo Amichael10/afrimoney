@@ -101,6 +101,8 @@ const logoMap: [RegExp, string][] = [
   [/d-money|djibouti telecom/i, dMoneyPng],
   [/expresso/i, expressoPng],
   [/mkesh/i, mkeshPng],
+  [/yas.*mtn|mtn.*yas/i, yasMtnPng],
+  [/zoona|spreadit/i, zoonaPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
