@@ -54,7 +54,6 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
         // fall through to SVG
       }
     }
-    // Fallback SVG download
     const size = 200;
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
       <rect width="${size}" height="${size}" rx="24" fill="${provider.color}"/>
@@ -72,19 +71,19 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   };
 
   return (
-    <div className="group flex items-center gap-3 rounded-lg border border-border bg-card p-3 transition-all hover:shadow-md hover:border-primary/30">
+    <div className="group relative flex items-center gap-3.5 rounded-xl border border-border bg-card p-3.5 transition-all duration-200 hover:shadow-md hover:shadow-primary/5 hover:border-primary/25 hover:-translate-y-0.5">
       {/* Logo */}
       {logoUrl ? (
         <img
           src={logoUrl}
           alt={`${provider.name} logo`}
-          className="h-10 w-10 shrink-0 rounded-lg object-contain bg-background p-0.5"
+          className="h-11 w-11 shrink-0 rounded-xl object-contain bg-background p-0.5 ring-1 ring-border"
           onError={handleLogoError}
           loading="lazy"
         />
       ) : (
         <div
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-xs font-bold font-display"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xs font-bold font-display ring-1 ring-border"
           style={{
             backgroundColor: provider.color,
             color: provider.textColor || "#fff",
@@ -95,25 +94,25 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
       )}
 
       {/* Name */}
-      <span className="flex-1 truncate text-sm font-medium text-card-foreground">
+      <span className="flex-1 truncate text-sm font-medium text-card-foreground leading-tight">
         {provider.name}
       </span>
 
       {/* Actions */}
-      <div className="flex shrink-0 gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+      <div className="flex shrink-0 gap-0.5 opacity-0 transition-all duration-200 group-hover:opacity-100">
         <button
           onClick={handleCopy}
-          className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
           title="Copy name"
         >
-          {copied ? <Check className="h-3.5 w-3.5 text-accent" /> : <Copy className="h-3.5 w-3.5" />}
+          {copied ? <Check className="h-4 w-4 text-accent" /> : <Copy className="h-4 w-4" />}
         </button>
         <button
           onClick={handleDownload}
-          className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
           title="Download logo"
         >
-          <Download className="h-3.5 w-3.5" />
+          <Download className="h-4 w-4" />
         </button>
       </div>
     </div>
