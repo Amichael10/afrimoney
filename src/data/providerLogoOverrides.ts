@@ -73,6 +73,8 @@ import eswatiniMobilePng from "@/assets/provider-logos/repo/eswatini-mobile.png"
 import mytMoneyPng from "@/assets/provider-logos/repo/myt-money.png";
 import emtelPng from "@/assets/provider-logos/repo/emtel.png";
 import telebirrPng from "@/assets/provider-logos/repo/telebirr.png";
+import cbebirrPng from "@/assets/provider-logos/repo/cbebirr.png";
+import hellocashPng from "@/assets/provider-logos/repo/hellocash.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
