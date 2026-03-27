@@ -128,6 +128,7 @@ const logoMap: [RegExp, string][] = [
   [/mascom|myzaka/i, mascomPng],
   [/smega|btc.*botswana/i, smegaPng],
   [/mtc money|mtc maris/i, mtcMarisPng],
+  [/easywallet|bank windhoek/i, easywalletPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
