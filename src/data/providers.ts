@@ -277,6 +277,7 @@ export const countries: Country[] = [
       { name: "EcoCash (Econet)", color: "#006B3F", shortName: "EC", domain: "econet.co.zw" },
       { name: "OneMoney (NetOne)", color: "#0072CE", shortName: "OM", domain: "netone.co.zw" },
       { name: "Telecash (Telecel)", color: "#E60000", shortName: "TC", domain: "telecel.co.zw" },
+      { name: "WIMPAY", color: "#1E3A5F", shortName: "WP", domain: "wimpay.co.zw" },
     ],
   },
   {
