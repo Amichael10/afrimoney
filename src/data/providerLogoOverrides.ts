@@ -86,6 +86,8 @@ import mauritelPng from "@/assets/provider-logos/repo/mauritel.png";
 import tadawulPng from "@/assets/provider-logos/repo/tadawul.png";
 import mpesaDrcPng from "@/assets/provider-logos/repo/mpesa-drc.png";
 import mpesaTzPng from "@/assets/provider-logos/repo/mpesa-tz.png";
+import fawryPng from "@/assets/provider-logos/repo/fawry.png";
+import wepayPng from "@/assets/provider-logos/repo/wepay.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
