@@ -61,6 +61,9 @@ import zeroPayPng from "@/assets/provider-logos/repo/zero-pay.png";
 import wimpayPng from "@/assets/provider-logos/repo/wimpay.png";
 import tKashPng from "@/assets/provider-logos/repo/t-kash.png";
 import marocTelecomJpg from "@/assets/provider-logos/repo/maroc-telecom.jpg";
+import ecocashPng from "@/assets/provider-logos/repo/ecocash.png";
+import telecashZwPng from "@/assets/provider-logos/repo/telecash-zw.png";
+import oneMoneyPng from "@/assets/provider-logos/repo/onemoney.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -115,6 +118,9 @@ const logoMap: [RegExp, string][] = [
   [/wizzit/i, wizzitPng],
   [/zero pay/i, zeroPayPng],
   [/wimpay/i, wimpayPng],
+  [/ecocash|econet/i, ecocashPng],
+  [/onemoney|netone/i, oneMoneyPng],
+  [/telecash(?!.*telecel cash)/i, telecashZwPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
