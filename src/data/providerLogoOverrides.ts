@@ -135,6 +135,8 @@ const logoMap: [RegExp, string][] = [
   [/easywallet|bank windhoek/i, easywalletPng],
   [/telecom namibia/i, telecomNamibiaJpg],
   [/e-mali|eswatini mobile/i, eswatiniMobilePng],
+  [/myt money|mauritius telecom/i, mytMoneyPng],
+  [/emtel/i, emtelPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
