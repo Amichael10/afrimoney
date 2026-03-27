@@ -414,4 +414,29 @@ export const countries: Country[] = [
       { name: "Tadawul", color: "#003366", shortName: "TD" },
     ],
   },
+  // ── Other Regions ──
+  {
+    name: "Myanmar", flag: "🇲🇲", code: "MM",
+    providers: [
+      { name: "Wave Money", color: "#FFD100", textColor: "#000", shortName: "WM", domain: "wavemoney.com.mm" },
+    ],
+  },
+  {
+    name: "South Africa (Other)", flag: "🇿🇦", code: "ZA-other",
+    providers: [
+      { name: "WIZZIT", color: "#7AB800", shortName: "WZ", domain: "wizzit.co.za" },
+    ],
+  },
+  {
+    name: "Zimbabwe (Other)", flag: "🇿🇼", code: "ZW-other",
+    providers: [
+      { name: "WIMPAY", color: "#1E3A5F", shortName: "WP", domain: "wimpay.co.zw" },
+    ],
+  },
+  {
+    name: "South Korea", flag: "🇰🇷", code: "KR",
+    providers: [
+      { name: "Zero Pay", color: "#FF3B30", shortName: "ZP", domain: "zeropay.or.kr" },
+    ],
+  },
 ];
