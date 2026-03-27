@@ -49,6 +49,9 @@ import telmaPng from "@/assets/provider-logos/repo/telma.png";
 import mcbPng from "@/assets/provider-logos/repo/mcb.png";
 import hormuudPng from "@/assets/provider-logos/repo/hormuud.png";
 import wavePng from "@/assets/provider-logos/repo/wave.png";
+import dMoneyPng from "@/assets/provider-logos/repo/d-money.png";
+import eMolaPng from "@/assets/provider-logos/repo/e-mola.png";
+import expressoPng from "@/assets/provider-logos/repo/expresso.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -74,7 +77,8 @@ const logoMap: [RegExp, string][] = [
   [/free money/i, freeMoneyPng],
   [/tnm mpamba/i, tnmPng],
   [/zamtel/i, zamtelPng],
-  [/movitel|e-mola/i, movitelPng],
+  [/movitel/i, movitelPng],
+  [/e-mola/i, eMolaPng],
   [/celtiis/i, celtiisPng],
   [/capitec/i, capitecPng],
   [/tymebank/i, tymebankPng],
@@ -91,6 +95,8 @@ const logoMap: [RegExp, string][] = [
   [/evc plus|hormuud/i, hormuudPng],
   [/safaricom/i, safaricomPng],
   [/wave/i, wavePng],
+  [/d-money|djibouti telecom/i, dMoneyPng],
+  [/expresso/i, expressoPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
