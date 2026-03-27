@@ -81,6 +81,8 @@ import digitelPng from "@/assets/provider-logos/repo/digitel.png";
 import comoresTelecomPng from "@/assets/provider-logos/repo/comores-telecom.png";
 import mvolaCvPng from "@/assets/provider-logos/repo/mvola-cv.png";
 import eKwanzaPng from "@/assets/provider-logos/repo/e-kwanza.png";
+import mattelPng from "@/assets/provider-logos/repo/mattel.png";
+import mauritelPng from "@/assets/provider-logos/repo/mauritel.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
