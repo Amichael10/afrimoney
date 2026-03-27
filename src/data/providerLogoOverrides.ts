@@ -78,6 +78,7 @@ import hellocashPng from "@/assets/provider-logos/repo/hellocash.png";
 import telesomPng from "@/assets/provider-logos/repo/telesom.png";
 import edahabPng from "@/assets/provider-logos/repo/edahab.png";
 import digitelPng from "@/assets/provider-logos/repo/digitel.png";
+import comoresTelecomPng from "@/assets/provider-logos/repo/comores-telecom.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
