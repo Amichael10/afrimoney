@@ -157,6 +157,8 @@ const logoMap: [RegExp, string][] = [
   [/huri money|comores telecom/i, comoresTelecomPng],
   [/mvola.*cv|cv móvel/i, mvolaCvPng],
   [/e-kwanza/i, eKwanzaPng],
+  [/mattel money/i, mattelPng],
+  [/masrvi|mauritel/i, mauritelPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
