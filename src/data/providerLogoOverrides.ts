@@ -67,6 +67,7 @@ import oneMoneyPng from "@/assets/provider-logos/repo/onemoney.png";
 import mascomPng from "@/assets/provider-logos/repo/mascom.png";
 import smegaPng from "@/assets/provider-logos/repo/smega.png";
 import mtcMarisPng from "@/assets/provider-logos/repo/mtc-maris.png";
+import easywalletPng from "@/assets/provider-logos/repo/easywallet.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -127,6 +128,7 @@ const logoMap: [RegExp, string][] = [
   [/mascom|myzaka/i, mascomPng],
   [/smega|btc.*botswana/i, smegaPng],
   [/mtc money|mtc maris/i, mtcMarisPng],
+  [/easywallet|bank windhoek/i, easywalletPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
