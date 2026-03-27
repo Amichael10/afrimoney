@@ -80,6 +80,7 @@ import edahabPng from "@/assets/provider-logos/repo/edahab.png";
 import digitelPng from "@/assets/provider-logos/repo/digitel.png";
 import comoresTelecomPng from "@/assets/provider-logos/repo/comores-telecom.png";
 import mvolaCvPng from "@/assets/provider-logos/repo/mvola-cv.png";
+import eKwanzaPng from "@/assets/provider-logos/repo/e-kwanza.png";
 
 // Map of provider name patterns to local logo assets
 // Order matters: more specific patterns should come first
@@ -153,6 +154,7 @@ const logoMap: [RegExp, string][] = [
   [/digicash|digitel.*south sudan/i, digitelPng],
   [/huri money|comores telecom/i, comoresTelecomPng],
   [/mvola.*cv|cv móvel/i, mvolaCvPng],
+  [/e-kwanza/i, eKwanzaPng],
   // M-Pesa / Vodacom
   [/m-pesa|vodacom/i, mpesaPng],
   // Orange Money
