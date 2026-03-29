@@ -170,11 +170,6 @@ export default function ProviderDetail() {
             <InfoRow label="Country" value={`${country.flag} ${country.name}`} />
             <InfoRow label="Founded" value={provider.foundedYear?.toString()} />
             <InfoRow label="Website" value={provider.website} isLink />
-            <InfoRow label="Brand Color" value={provider.color} />
-            <div className="flex items-center gap-2 pt-2">
-              <div className="h-6 w-6 rounded-md border-2 border-foreground" style={{ backgroundColor: provider.color }} />
-              <code className="text-xs font-mono font-bold text-muted-foreground">{provider.color}</code>
-            </div>
           </Section>
 
           {/* Coverage */}
