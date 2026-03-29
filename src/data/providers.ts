@@ -599,7 +599,7 @@ export const countries: Country[] = [
     name: "Eswatini", flag: "🇸🇿", code: "SZ",
     providers: [
       p({ name: "MTN MoMo Eswatini", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.co.sz", parentCompany: "MTN Group", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "E-Mali (Eswatini Mobile)", color: "#006B3F", shortName: "EM", domain: "swazimobile.co.sz", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "E-Mali (Eswatini Mobile)", color: "#D32F2F", shortName: "EM", domain: "swazimobile.co.sz", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
