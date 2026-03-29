@@ -746,7 +746,7 @@ export const countries: Country[] = [
   {
     name: "Mauritania", flag: "🇲🇷", code: "MR",
     providers: [
-      p({ name: "Masrvi (Mauritel)", color: "#006B3F", shortName: "MS", domain: "mauritel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Masrvi (Mauritel)", color: "#003B8E", shortName: "MS", domain: "mauritel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Orange Money Mauritania", color: "#FF6600", shortName: "OM", domain: "orange.mr", parentCompany: "Orange Group", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Mattel Money", color: "#0072CE", shortName: "MM", domain: "mattel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
     ],
