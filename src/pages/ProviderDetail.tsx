@@ -126,7 +126,7 @@ export default function ProviderDetail() {
               {displayLogo && !logoFailed ? (
                 <img src={displayLogo} alt={provider.name} className="h-full w-full object-contain p-2" onError={() => setLogoFailed(true)} />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-lg font-black font-display" style={{ backgroundColor: provider.color, color: provider.textColor || "#fff" }}>
+                <div className="flex h-full w-full items-center justify-center text-lg font-black font-display bg-muted text-foreground">
                   {provider.shortName || provider.name.slice(0, 2)}
                 </div>
               )}
