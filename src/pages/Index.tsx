@@ -86,11 +86,8 @@ const Index = () => {
 
         {/* Top nav */}
         <div className="relative container mx-auto max-w-6xl px-4 pt-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-md border-2 border-foreground bg-primary shadow-brutal-sm">
-              <Smartphone className="h-4.5 w-4.5 text-primary-foreground" />
-            </div>
-            <span className="font-display text-lg font-bold text-foreground tracking-tight hidden sm:inline">AfriPay Directory</span>
+          <Link to="/" className="flex items-center">
+            <img src={afripayLogo} alt="AfriPay Directory" className="h-8 sm:h-10" />
           </Link>
           <ThemeToggle />
         </div>
