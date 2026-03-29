@@ -39,8 +39,19 @@ const Index = () => {
     return Object.fromEntries(Object.entries(regionMap).filter(([, v]) => v.length > 0));
   }, []);
 
+  const africanCountries = useMemo(() => {
+    const africanCodes = new Set([
+      ...["NG", "GH", "SN", "CI", "ML", "BF", "NE", "GW", "GM", "SL", "LR", "TG", "BJ", "CV", "GN"],
+      ...["KE", "TZ", "UG", "RW", "ET", "SO", "SS", "SD", "ER", "DJ", "KM", "MG", "MU", "SC"],
+      ...["ZA", "ZW", "BW", "NA", "MZ", "ZM", "MW", "SZ", "LS"],
+      ...["CD", "CG", "CM", "GA", "GQ", "CF", "TD", "ST", "AO"],
+      ...["EG", "MA", "TN", "DZ", "LY", "MR"],
+    ]);
+    return countries.filter(c => africanCodes.has(c.code));
+  }, []);
+
   const filtered = useMemo(() => {
-    let source = activeRegion && regions[activeRegion] ? regions[activeRegion] : countries;
+    let source = activeRegion && regions[activeRegion] ? regions[activeRegion] : africanCountries;
 
     if (statusFilter !== "all") {
       source = source
