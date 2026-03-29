@@ -109,7 +109,7 @@ export default function ProviderDetail() {
             <span className="hidden sm:inline">Back to Directory</span>
           </Link>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground font-medium">{country.flag} {country.name}</span>
+            <span className="text-sm text-muted-foreground font-medium flex items-center gap-1.5"><span className={`fi fi-${country.code.toLowerCase()}`} /> {country.name}</span>
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-sm font-bold text-foreground truncate max-w-[120px] sm:max-w-none">{provider.name}</span>
           </div>
@@ -167,7 +167,7 @@ export default function ProviderDetail() {
           <Section title="Identity" icon={Building2}>
             <InfoRow label="Full Name" value={provider.name} />
             <InfoRow label="Parent Company" value={provider.parentCompany} />
-            <InfoRow label="Country" value={`${country.flag} ${country.name}`} />
+            <InfoRow label="Country" value={country.name} />
             <InfoRow label="Founded" value={provider.foundedYear?.toString()} />
             <InfoRow label="Website" value={provider.website} isLink />
           </Section>

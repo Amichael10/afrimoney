@@ -9,7 +9,7 @@ const CountrySection = ({ country }: CountrySectionProps) => {
   return (
     <div className="animate-fade-in">
       <div className="mb-4 flex items-center gap-2.5">
-        <span className="text-2xl leading-none">{country.flag}</span>
+        <span className={`fi fi-${country.code.toLowerCase()} text-2xl leading-none`} />
         <h2 className="font-display text-lg font-bold text-foreground">
           {country.name}
         </h2>
