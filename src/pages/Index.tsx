@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
-import { Search, Globe, X, SlidersHorizontal } from "lucide-react";
+import { Search, Smartphone, Globe, X, SlidersHorizontal } from "lucide-react";
 import afripayLogo from "@/assets/afripay-logo.png";
 import { countries } from "@/data/providers";
 import { ThemeToggle } from "@/components/ThemeToggle";
