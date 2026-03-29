@@ -21,7 +21,7 @@ const Index = () => {
   const regions = useMemo(() => {
     const regionMap: Record<string, typeof countries> = {
       "West Africa": [], "East Africa": [], "Southern Africa": [],
-      "Central Africa": [], "North Africa": [], "Other Regions": [],
+      "Central Africa": [], "North Africa": [],
     };
     const westAfrica = ["NG", "GH", "SN", "CI", "ML", "BF", "NE", "GW", "GM", "SL", "LR", "TG", "BJ", "CV", "GN"];
     const eastAfrica = ["KE", "TZ", "UG", "RW", "ET", "SO", "SS", "SD", "ER", "DJ", "KM", "MG", "MU", "SC"];
@@ -35,13 +35,23 @@ const Index = () => {
       else if (southernAfrica.includes(c.code)) regionMap["Southern Africa"].push(c);
       else if (centralAfrica.includes(c.code)) regionMap["Central Africa"].push(c);
       else if (northAfrica.includes(c.code)) regionMap["North Africa"].push(c);
-      else regionMap["Other Regions"].push(c);
     });
     return Object.fromEntries(Object.entries(regionMap).filter(([, v]) => v.length > 0));
   }, []);
 
+  const africanCountries = useMemo(() => {
+    const africanCodes = new Set([
+      ...["NG", "GH", "SN", "CI", "ML", "BF", "NE", "GW", "GM", "SL", "LR", "TG", "BJ", "CV", "GN"],
+      ...["KE", "TZ", "UG", "RW", "ET", "SO", "SS", "SD", "ER", "DJ", "KM", "MG", "MU", "SC"],
+      ...["ZA", "ZW", "BW", "NA", "MZ", "ZM", "MW", "SZ", "LS"],
+      ...["CD", "CG", "CM", "GA", "GQ", "CF", "TD", "ST", "AO"],
+      ...["EG", "MA", "TN", "DZ", "LY", "MR"],
+    ]);
+    return countries.filter(c => africanCodes.has(c.code));
+  }, []);
+
   const filtered = useMemo(() => {
-    let source = activeRegion && regions[activeRegion] ? regions[activeRegion] : countries;
+    let source = activeRegion && regions[activeRegion] ? regions[activeRegion] : africanCountries;
 
     if (statusFilter !== "all") {
       source = source
@@ -68,9 +78,9 @@ const Index = () => {
     }
 
     return source;
-  }, [search, activeRegion, regions, sortBy, statusFilter]);
+  }, [search, activeRegion, regions, sortBy, statusFilter, africanCountries]);
 
-  const totalProviders = countries.reduce((s, c) => s + c.providers.length, 0);
+  const totalProviders = africanCountries.reduce((s, c) => s + c.providers.length, 0);
   const filteredProviders = filtered.reduce((s, c) => s + c.providers.length, 0);
 
   const scrollToContent = () => {
@@ -103,8 +113,8 @@ const Index = () => {
             </p>
             <div className="flex items-center gap-4 mt-5">
               <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
-                <Globe className="h-4 w-4 text-primary" />
-                <span>{countries.length} Countries</span>
+               <Globe className="h-4 w-4 text-primary" />
+                <span>{africanCountries.length} Countries</span>
               </div>
               <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
                 <Smartphone className="h-4 w-4 text-accent" />
@@ -261,7 +271,7 @@ const Index = () => {
               <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain dark:brightness-0 dark:invert" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
-              Open-source directory — {totalProviders} providers across {countries.length} countries
+              Open-source directory — {totalProviders} providers across {africanCountries.length} countries
             </p>
           </div>
         </div>
