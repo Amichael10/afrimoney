@@ -88,7 +88,7 @@ const Index = () => {
         {/* Top nav */}
         <div className="relative container mx-auto max-w-6xl px-4 pt-4 flex items-center justify-between">
            <Link to="/" className="flex items-center rounded-md border-2 border-foreground px-3 py-2 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card">
-              <img src={afripayWordmark} alt="AfriPay Directory" className="h-6 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-6 object-contain dark:brightness-0 dark:invert" />
             </Link>
           <ThemeToggle />
         </div>
@@ -259,7 +259,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
               <img src={afripayLogo} alt="AfriPay" className="h-6 w-6 object-contain" />
-              <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain dark:brightness-0 dark:invert" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {countries.length} countries
