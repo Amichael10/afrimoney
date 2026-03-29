@@ -167,7 +167,7 @@ export default function ProviderDetail() {
           <Section title="Identity" icon={Building2}>
             <InfoRow label="Full Name" value={provider.name} />
             <InfoRow label="Parent Company" value={provider.parentCompany} />
-            <InfoRow label="Country" value={country.name} icon={<span className={`fi fi-${country.code.toLowerCase()}`} />} />
+            <InfoRow label="Country" value={country.name} />
             <InfoRow label="Founded" value={provider.foundedYear?.toString()} />
             <InfoRow label="Website" value={provider.website} isLink />
           </Section>
