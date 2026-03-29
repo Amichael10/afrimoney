@@ -727,7 +727,7 @@ export const countries: Country[] = [
   {
     name: "São Tomé and Príncipe", flag: "🇸🇹", code: "ST",
     providers: [
-      p({ name: "e-Kwanza (CST)", color: "#006B3F", shortName: "eK", domain: "cst.st", status: "active", transactions: { currency: "STN" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "e-Kwanza (CST)", color: "#0066B3", shortName: "eK", domain: "cst.st", status: "active", transactions: { currency: "STN" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
