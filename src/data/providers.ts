@@ -693,7 +693,7 @@ export const countries: Country[] = [
     name: "Somalia / South Sudan", flag: "🇸🇴", code: "SO",
     providers: [
       p({ name: "EVC Plus (Hormuud)", color: "#FF6600", shortName: "EV", domain: "hormuud.com", parentCompany: "Hormuud Telecom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Zaad (Telesom)", color: "#006B3F", shortName: "ZD", domain: "telesom.com", parentCompany: "Telesom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Zaad (Telesom)", color: "#00A86B", shortName: "ZD", domain: "telesom.com", parentCompany: "Telesom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "E-Dahab (Golis)", color: "#FFB800", textColor: "#000", shortName: "ED", domain: "golistelecom.com", parentCompany: "Golis Telecom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "DigiCash (South Sudan)", color: "#0072CE", shortName: "DC", status: "active", transactions: { currency: "SSP" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "MoMo (MTN South Sudan)", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.com", parentCompany: "MTN Group", status: "active", transactions: { currency: "SSP" }, meta: { lastVerified: "2025-12-01" } }),
