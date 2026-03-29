@@ -78,8 +78,7 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
         />
       ) : (
         <div
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-xs font-bold font-display border-2 border-foreground"
-          style={{ backgroundColor: provider.color, color: provider.textColor || "#fff" }}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-xs font-bold font-display border-2 border-foreground bg-muted text-foreground"
         >
           {provider.shortName || provider.name.slice(0, 2)}
         </div>
