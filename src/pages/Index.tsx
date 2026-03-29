@@ -113,8 +113,8 @@ const Index = () => {
             </p>
             <div className="flex items-center gap-4 mt-5">
               <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
-                <Globe className="h-4 w-4 text-primary" />
-                <span>{countries.length} Countries</span>
+               <Globe className="h-4 w-4 text-primary" />
+                <span>{africanCountries.length} Countries</span>
               </div>
               <div className="flex items-center gap-1.5 rounded-md border-2 border-foreground bg-card px-3 py-1.5 text-sm font-bold shadow-brutal-sm">
                 <Smartphone className="h-4 w-4 text-accent" />
