@@ -291,7 +291,7 @@ export const countries: Country[] = [
     name: "Rwanda", flag: "🇷🇼", code: "RW",
     providers: [
       p({ name: "MTN MoMo Rwanda", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.co.rw", tagline: "MTN Rwanda's mobile money", parentCompany: "MTN Group", status: "active", coverage: { platforms: ["USSD", "Android", "Agent Network"], ussdCode: "*182#" }, developer: { hasApi: true, apiDocsUrl: "https://momodeveloper.mtn.com", sandboxAvailable: true, webhookSupport: true }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments"], currency: "RWF" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Airtel Money Rwanda", color: "#ED1C24", shortName: "AM", domain: "airtel.com.rw", status: "active", transactions: { currency: "RWF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Airtel Money Rwanda", color: "#00ccff", shortName: "AM", domain: "airtel.com.rw", tagline: "Mobile money service by Airtel Rwanda", aliases: ["Airtel Money Rwanda"], parentCompany: "Airtel Rwanda", status: "active", website: "https://www.airtel.com/rwanda/airtel-money/", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*999#", languages: ["English", "Kinyarwanda"] }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Airtime Top-up", "Savings", "Loans"], currency: "RWF" }, meta: { lastVerified: "2025-12-01", sources: [{ label: "Official Site", url: "https://www.airtel.com/rwanda/airtel-money/" }] } }),
     ],
   },
   {
