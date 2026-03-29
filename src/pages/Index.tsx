@@ -2,6 +2,7 @@ import { useState, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Search, Smartphone, Globe, X, SlidersHorizontal } from "lucide-react";
 import afripayLogo from "@/assets/afripay-logo.png";
+import afripayWordmark from "@/assets/afripay-wordmark.svg";
 import { countries } from "@/data/providers";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import CountrySection from "@/components/CountrySection";
@@ -86,10 +87,10 @@ const Index = () => {
 
         {/* Top nav */}
         <div className="relative container mx-auto max-w-6xl px-4 pt-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src={afripayLogo} alt="AfriPay Directory" className="h-9 w-9 object-contain" />
-            <span className="font-display text-lg font-bold text-foreground tracking-tight hidden sm:inline">AfriPay Directory</span>
-          </Link>
+           <Link to="/" className="flex items-center gap-2.5 rounded-md border-2 border-foreground px-2.5 py-1.5 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card">
+              <img src={afripayLogo} alt="AfriPay" className="h-7 w-7 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-5 hidden sm:inline object-contain" />
+            </Link>
           <ThemeToggle />
         </div>
 
@@ -258,8 +259,8 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <img src={afripayLogo} alt="AfriPay Directory" className="h-7 w-7 object-contain" />
-              <span className="font-display text-sm font-bold text-foreground">AfriPay Directory</span>
+              <img src={afripayLogo} alt="AfriPay" className="h-6 w-6 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {countries.length} countries
