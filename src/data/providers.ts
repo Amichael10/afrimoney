@@ -284,7 +284,7 @@ export const countries: Country[] = [
         brand: { primaryColor: "#FFCC00" },
         meta: { lastVerified: "2025-12-01" },
       }),
-      p({ name: "Airtel Money Uganda", color: "#ED1C24", shortName: "AM", domain: "airtel.co.ug", tagline: "Airtel's mobile money in Uganda", parentCompany: "Airtel Africa", status: "active", coverage: { platforms: ["USSD", "Android", "Agent Network"] }, developer: { hasApi: true, integrationPlatforms: ["Pawapay", "Flutterwave"] }, transactions: { types: ["P2P", "Bill Payments", "Airtime Top-up"], currency: "UGX" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Airtel Money Uganda", color: "#00ccff", shortName: "AM", domain: "airtel.co.ug", tagline: "Mobile money service by Airtel Uganda", aliases: ["Airtel Money Uganda"], parentCompany: "Airtel Uganda Limited", status: "active", website: "https://www.airtel.com/ug/airtel-money/", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*185#", languages: ["English"] }, developer: { hasApi: true, integrationPlatforms: ["Pawapay", "Flutterwave"] }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Airtime Top-up", "Savings", "Loans"], currency: "UGX" }, meta: { lastVerified: "2025-12-01", sources: [{ label: "Official Site", url: "https://www.airtel.com/ug/airtel-money/" }] } }),
     ],
   },
   {
