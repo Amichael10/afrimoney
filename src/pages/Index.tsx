@@ -271,7 +271,7 @@ const Index = () => {
               <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain dark:brightness-0 dark:invert" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
-              Open-source directory — {totalProviders} providers across {countries.length} countries
+              Open-source directory — {totalProviders} providers across {africanCountries.length} countries
             </p>
           </div>
         </div>
