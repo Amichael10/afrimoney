@@ -277,6 +277,12 @@ const Index = () => {
             <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {africanCountries.length} countries
             </p>
+            <p className="text-xs text-muted-foreground">
+              Built by{" "}
+              <a href="https://amichael.design" target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors underline underline-offset-2">
+                Michael
+              </a>
+            </p>
           </div>
         </div>
       </footer>
