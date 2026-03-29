@@ -130,7 +130,7 @@ export const countries: Country[] = [
       p({ name: "Moniepoint", color: "#0066FF", shortName: "MP", domain: "moniepoint.com", tagline: "Financial happiness for every business", parentCompany: "Moniepoint Inc.", foundedYear: 2019, status: "active", website: "https://moniepoint.com", developer: { hasApi: true, apiDocsUrl: "https://developer.moniepoint.com", sandboxAvailable: true, webhookSupport: true }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments"], currency: "NGN" }, brand: { primaryColor: "#0066FF" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "MTN MoMo (MoMo PSB)", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.com", tagline: "MTN's payment service bank for Nigeria", parentCompany: "MTN Group", foundedYear: 2022, status: "active", website: "https://mtn.ng", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*223#", languages: ["English"] }, developer: { hasApi: true, apiDocsUrl: "https://momodeveloper.mtn.com", sandboxAvailable: true, webhookSupport: true, integrationPlatforms: ["Flutterwave", "Paystack", "Chimoney", "Pawapay"] }, transactions: { types: ["P2P", "Airtime Top-up", "Bill Payments", "Merchant Payments"], currency: "NGN", feeStructure: "Tiered based on transaction value" }, brand: { primaryColor: "#FFCC00", hasLightLogo: true, hasDarkLogo: true, hasIconOnly: true }, meta: { lastVerified: "2025-12-01", sources: [{ label: "MTN MoMo Developer Portal", url: "https://momodeveloper.mtn.com" }] } }),
       p({ name: "Airtel Money (SmartCash PSB)", color: "#ED1C24", shortName: "AM", domain: "airtel.com.ng", tagline: "Airtel's payment service bank", parentCompany: "Airtel Africa", foundedYear: 2023, status: "active", coverage: { platforms: ["USSD", "Android", "Agent Network"], ussdCode: "*185#" }, developer: { hasApi: true, integrationPlatforms: ["Pawapay"] }, transactions: { types: ["P2P", "Airtime Top-up", "Bill Payments"], currency: "NGN" }, brand: { primaryColor: "#ED1C24" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "9PSB (9mobile)", color: "#006B3F", shortName: "9P", domain: "9psb.com.ng", tagline: "9mobile's payment service bank", status: "active", transactions: { currency: "NGN" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "9PSB (9mobile)", color: "#2E7D32", shortName: "9P", domain: "9psb.com.ng", tagline: "9mobile's payment service bank", status: "active", transactions: { currency: "NGN" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Carbon", color: "#00C2B2", shortName: "C", domain: "getcarbon.co", tagline: "Instant loans and payments", parentCompany: "Carbon (formerly Paylater)", foundedYear: 2012, status: "active", website: "https://getcarbon.co", developer: { hasApi: true }, transactions: { types: ["P2P", "Bill Payments", "Airtime Top-up"], currency: "NGN" }, brand: { primaryColor: "#00C2B2" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Fairmoney", color: "#00B5E2", shortName: "FM", domain: "fairmoney.io", tagline: "Fast loans & mobile banking", parentCompany: "FairMoney Microfinance Bank", foundedYear: 2017, status: "active", website: "https://fairmoney.io", transactions: { types: ["P2P", "Bill Payments"], currency: "NGN" }, meta: { lastVerified: "2025-12-01" } }),
     ],
@@ -488,7 +488,7 @@ export const countries: Country[] = [
     name: "Gambia", flag: "🇬🇲", code: "GM",
     providers: [
       p({ name: "Africell Money Gambia", color: "#003366", shortName: "AC", domain: "africell.gm", parentCompany: "Africell", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "QMoney (Gamcel)", color: "#006B3F", shortName: "QM", domain: "gamcel.gm", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "QMoney (Gamcel)", color: "#6A1B9A", shortName: "QM", domain: "gamcel.gm", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Wave Gambia", color: "#1B2A4A", shortName: "WV", domain: "wave.com", parentCompany: "Wave Mobile Money", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
@@ -503,7 +503,7 @@ export const countries: Country[] = [
     name: "Togo", flag: "🇹🇬", code: "TG",
     providers: [
       p({ name: "Flooz (Moov Africa Togo)", color: "#0072CE", shortName: "FL", domain: "moov-africa.tg", parentCompany: "Moov Africa", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "TMoney (Togocel)", color: "#006B3F", shortName: "TM", domain: "togocel.tg", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "TMoney (Togocel)", color: "#0033A0", shortName: "TM", domain: "togocel.tg", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Togo Pesa", color: "#FF6600", shortName: "TP", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
@@ -529,14 +529,14 @@ export const countries: Country[] = [
     providers: [
       p({ name: "Unitel Money", color: "#FF6600", shortName: "UM", domain: "unitel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Africell Money Angola", color: "#003366", shortName: "AC", domain: "africell.ao", parentCompany: "Africell", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "AfriMoney (Movicel)", color: "#006B3F", shortName: "AF", domain: "movicel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "AfriMoney (Movicel)", color: "#F7941D", textColor: "#000", shortName: "AF", domain: "movicel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
     name: "Zimbabwe", flag: "🇿🇼", code: "ZW",
     providers: [
       p({
-        name: "EcoCash (Econet)", color: "#006B3F", shortName: "EC", domain: "econet.co.zw",
+        name: "EcoCash (Econet)", color: "#0047AB", shortName: "EC", domain: "econet.co.zw",
         tagline: "Zimbabwe's leading mobile money platform",
         parentCompany: "Econet Wireless / Cassava Technologies",
         foundedYear: 2011,
@@ -557,7 +557,7 @@ export const countries: Country[] = [
           types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Savings"],
           currency: "ZWL / USD",
         },
-        brand: { primaryColor: "#006B3F" },
+        brand: { primaryColor: "#0047AB" },
         meta: { lastVerified: "2025-12-01" },
       }),
       p({ name: "OneMoney (NetOne)", color: "#0072CE", shortName: "OM", domain: "netone.co.zw", parentCompany: "NetOne", status: "active", transactions: { currency: "ZWL" }, meta: { lastVerified: "2025-12-01" } }),
@@ -592,14 +592,14 @@ export const countries: Country[] = [
     name: "Lesotho", flag: "🇱🇸", code: "LS",
     providers: [
       p({ name: "M-Pesa Lesotho (Vodacom)", color: "#E60000", shortName: "MP", domain: "vodacom.co.ls", parentCompany: "Vodacom", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Econet Lesotho eMoney", color: "#006B3F", shortName: "EL", domain: "econet.co.ls", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Econet Lesotho eMoney", color: "#003DA5", shortName: "EL", domain: "econet.co.ls", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
     name: "Eswatini", flag: "🇸🇿", code: "SZ",
     providers: [
       p({ name: "MTN MoMo Eswatini", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.co.sz", parentCompany: "MTN Group", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "E-Mali (Eswatini Mobile)", color: "#006B3F", shortName: "EM", domain: "swazimobile.co.sz", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "E-Mali (Eswatini Mobile)", color: "#D32F2F", shortName: "EM", domain: "swazimobile.co.sz", status: "active", transactions: { currency: "SZL" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
@@ -615,7 +615,7 @@ export const countries: Country[] = [
     providers: [
       p({ name: "MyT Money (Mauritius Telecom)", color: "#0072CE", shortName: "MT", domain: "mauritiustelecom.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Juice (MCB Group)", color: "#FF4500", shortName: "JC", domain: "mcb.mu", parentCompany: "MCB Group", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "MYT (Emtel Pay)", color: "#006B3F", shortName: "MY", domain: "emtel.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "MYT (Emtel Pay)", color: "#E30613", shortName: "MY", domain: "emtel.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
@@ -628,7 +628,7 @@ export const countries: Country[] = [
     name: "Ethiopia", flag: "🇪🇹", code: "ET",
     providers: [
       p({
-        name: "Telebirr (Ethio Telecom)", color: "#006B3F", shortName: "TB", domain: "ethiotelecom.et",
+        name: "Telebirr (Ethio Telecom)", color: "#00A651", shortName: "TB", domain: "ethiotelecom.et",
         tagline: "Ethiopia's largest mobile money service",
         parentCompany: "Ethio Telecom (Government owned)",
         foundedYear: 2021,
@@ -649,7 +649,7 @@ export const countries: Country[] = [
           types: ["P2P", "Merchant Payments", "Bill Payments", "Airtime Top-up", "International Remittance"],
           currency: "ETB",
         },
-        brand: { primaryColor: "#006B3F" },
+        brand: { primaryColor: "#00A651" },
         meta: { lastVerified: "2025-12-01" },
       }),
       p({ name: "Amole (Dashen Bank)", color: "#0072CE", shortName: "AL", domain: "dashenbanksc.com", status: "active", parentCompany: "Dashen Bank", transactions: { currency: "ETB" }, meta: { lastVerified: "2025-12-01" } }),
@@ -693,7 +693,7 @@ export const countries: Country[] = [
     name: "Somalia / South Sudan", flag: "🇸🇴", code: "SO",
     providers: [
       p({ name: "EVC Plus (Hormuud)", color: "#FF6600", shortName: "EV", domain: "hormuud.com", parentCompany: "Hormuud Telecom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Zaad (Telesom)", color: "#006B3F", shortName: "ZD", domain: "telesom.com", parentCompany: "Telesom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Zaad (Telesom)", color: "#00A86B", shortName: "ZD", domain: "telesom.com", parentCompany: "Telesom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "E-Dahab (Golis)", color: "#FFB800", textColor: "#000", shortName: "ED", domain: "golistelecom.com", parentCompany: "Golis Telecom", status: "active", transactions: { currency: "SOS" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "DigiCash (South Sudan)", color: "#0072CE", shortName: "DC", status: "active", transactions: { currency: "SSP" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "MoMo (MTN South Sudan)", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.com", parentCompany: "MTN Group", status: "active", transactions: { currency: "SSP" }, meta: { lastVerified: "2025-12-01" } }),
@@ -709,7 +709,7 @@ export const countries: Country[] = [
   {
     name: "Djibouti", flag: "🇩🇯", code: "DJ",
     providers: [
-      p({ name: "D-Money (Djibouti Telecom)", color: "#006B3F", shortName: "DM", domain: "djiboutitelecom.dj", status: "active", transactions: { currency: "DJF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "D-Money (Djibouti Telecom)", color: "#1E3A8A", shortName: "DM", domain: "djiboutitelecom.dj", status: "active", transactions: { currency: "DJF" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
@@ -727,7 +727,7 @@ export const countries: Country[] = [
   {
     name: "São Tomé and Príncipe", flag: "🇸🇹", code: "ST",
     providers: [
-      p({ name: "e-Kwanza (CST)", color: "#006B3F", shortName: "eK", domain: "cst.st", status: "active", transactions: { currency: "STN" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "e-Kwanza (CST)", color: "#0066B3", shortName: "eK", domain: "cst.st", status: "active", transactions: { currency: "STN" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
@@ -746,7 +746,7 @@ export const countries: Country[] = [
   {
     name: "Mauritania", flag: "🇲🇷", code: "MR",
     providers: [
-      p({ name: "Masrvi (Mauritel)", color: "#006B3F", shortName: "MS", domain: "mauritel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Masrvi (Mauritel)", color: "#003B8E", shortName: "MS", domain: "mauritel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Orange Money Mauritania", color: "#FF6600", shortName: "OM", domain: "orange.mr", parentCompany: "Orange Group", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Mattel Money", color: "#0072CE", shortName: "MM", domain: "mattel.mr", status: "active", transactions: { currency: "MRU" }, meta: { lastVerified: "2025-12-01" } }),
     ],
