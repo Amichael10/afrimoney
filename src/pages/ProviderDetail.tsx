@@ -3,6 +3,7 @@ import { findProviderBySlug } from "@/data/providers";
 import { getRepoProviderLogo } from "@/data/providerLogoOverrides";
 import { StatusBadge } from "@/components/StatusBadge";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GithubLink } from "@/components/GithubLink";
 import {
   ArrowLeft, Globe, ExternalLink, Copy, Download, Check,
   Smartphone, Hash, Code2, Webhook, TestTube, CreditCard,
@@ -113,7 +114,10 @@ export default function ProviderDetail() {
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-sm font-bold text-foreground truncate max-w-[120px] sm:max-w-none">{provider.name}</span>
           </div>
-          <ThemeToggle />
+           <div className="flex items-center gap-2">
+              <GithubLink />
+              <ThemeToggle />
+            </div>
         </div>
       </nav>
 

@@ -5,6 +5,7 @@ import afripayLogo from "@/assets/afripay-logo.png";
 import afripayWordmark from "@/assets/afripay-wordmark.svg";
 import { countries } from "@/data/providers";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GithubLink } from "@/components/GithubLink";
 import CountrySection from "@/components/CountrySection";
 
 type SortOption = "alphabetical" | "country" | "region";
@@ -100,7 +101,10 @@ const Index = () => {
            <Link to="/" className="flex items-center rounded-md border-2 border-foreground px-3 py-2 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card">
               <img src={afripayWordmark} alt="AfriPay Directory" className="h-6 object-contain dark:brightness-0 dark:invert" />
             </Link>
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <GithubLink />
+            <ThemeToggle />
+          </div>
         </div>
 
         <div className="relative container mx-auto max-w-6xl px-4 py-10 sm:py-14">
