@@ -35,7 +35,6 @@ const Index = () => {
       else if (southernAfrica.includes(c.code)) regionMap["Southern Africa"].push(c);
       else if (centralAfrica.includes(c.code)) regionMap["Central Africa"].push(c);
       else if (northAfrica.includes(c.code)) regionMap["North Africa"].push(c);
-      else regionMap["Other Regions"].push(c);
     });
     return Object.fromEntries(Object.entries(regionMap).filter(([, v]) => v.length > 0));
   }, []);
