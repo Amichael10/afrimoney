@@ -3,6 +3,7 @@ import { findProviderBySlug } from "@/data/providers";
 import { getRepoProviderLogo } from "@/data/providerLogoOverrides";
 import { StatusBadge } from "@/components/StatusBadge";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GithubLink } from "@/components/GithubLink";
 import {
   ArrowLeft, Globe, ExternalLink, Copy, Download, Check,
   Smartphone, Hash, Code2, Webhook, TestTube, CreditCard,

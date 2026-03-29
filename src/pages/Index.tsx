@@ -5,6 +5,7 @@ import afripayLogo from "@/assets/afripay-logo.png";
 import afripayWordmark from "@/assets/afripay-wordmark.svg";
 import { countries } from "@/data/providers";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GithubLink } from "@/components/GithubLink";
 import CountrySection from "@/components/CountrySection";
 
 type SortOption = "alphabetical" | "country" | "region";

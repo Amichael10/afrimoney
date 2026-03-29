@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Download, Copy, Check } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { GithubLink } from "@/components/GithubLink";
 
 import afripayWordmark from "@/assets/brand/afripay-wordmark.svg";
 import afripayWordmarkWhite from "@/assets/brand/afripay-wordmark-white.svg";
