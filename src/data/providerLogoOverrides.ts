@@ -87,6 +87,13 @@ import tadawulPng from "@/assets/provider-logos/repo/tadawul.png";
 import mpesaDrcPng from "@/assets/provider-logos/repo/mpesa-drc.png";
 import mpesaTzPng from "@/assets/provider-logos/repo/mpesa-tz.png";
 import fawryPng from "@/assets/provider-logos/repo/fawry.png";
+import unitelMoneyWebp from "@/assets/provider-logos/repo/unitel-money.webp";
+import tigoPesaJpg from "@/assets/provider-logos/repo/tigo-pesa.jpg";
+import tmoneyAvif from "@/assets/provider-logos/repo/tmoney.avif";
+import instapayWebp from "@/assets/provider-logos/repo/instapay.webp";
+import cellcomWebp from "@/assets/provider-logos/repo/cellcom.webp";
+import equitelWebp from "@/assets/provider-logos/repo/equitel.webp";
+
 import wepayPng from "@/assets/provider-logos/repo/wepay.png";
 
 // Map of provider name patterns to local logo assets
@@ -106,11 +113,16 @@ const logoMap: [RegExp, string][] = [
   [/baridimob|algérie poste/i, baridimobPng],
   [/cash\s*plus/i, cashPlusPng],
   // Specific telco/payment brands
+  [/equitel|equity.*mobile/i, equitelWebp],
   [/airteltigo/i, airteltigoPng],
   [/halopesa|halotel/i, halopesaPng],
-  [/tigo pesa|tigo cash/i, tigoPesaPng],
+  [/tigo pesa|tigo cash/i, tigoPesaJpg],
   [/telecel cash/i, telecelCashPng],
   [/free money/i, freeMoneyPng],
+  [/unitel money/i, unitelMoneyWebp],
+  [/tmoney|togocel/i, tmoneyAvif],
+  [/instapay/i, instapayWebp],
+  [/cellcom/i, cellcomWebp],
   [/tnm mpamba/i, tnmPng],
   [/zamtel/i, zamtelPng],
   [/movitel/i, movitelPng],
