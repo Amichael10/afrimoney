@@ -72,7 +72,10 @@ export default function Brand() {
             </Link>
             <h1 className="font-heading text-2xl font-bold">Brand Assets</h1>
           </div>
-          <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <GithubLink />
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
