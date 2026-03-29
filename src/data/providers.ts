@@ -488,7 +488,7 @@ export const countries: Country[] = [
     name: "Gambia", flag: "🇬🇲", code: "GM",
     providers: [
       p({ name: "Africell Money Gambia", color: "#003366", shortName: "AC", domain: "africell.gm", parentCompany: "Africell", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "QMoney (Gamcel)", color: "#006B3F", shortName: "QM", domain: "gamcel.gm", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "QMoney (Gamcel)", color: "#6A1B9A", shortName: "QM", domain: "gamcel.gm", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Wave Gambia", color: "#1B2A4A", shortName: "WV", domain: "wave.com", parentCompany: "Wave Mobile Money", status: "active", transactions: { currency: "GMD" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
