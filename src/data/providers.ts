@@ -649,7 +649,7 @@ export const countries: Country[] = [
           types: ["P2P", "Merchant Payments", "Bill Payments", "Airtime Top-up", "International Remittance"],
           currency: "ETB",
         },
-        brand: { primaryColor: "#006B3F" },
+        brand: { primaryColor: "#00A651" },
         meta: { lastVerified: "2025-12-01" },
       }),
       p({ name: "Amole (Dashen Bank)", color: "#0072CE", shortName: "AL", domain: "dashenbanksc.com", status: "active", parentCompany: "Dashen Bank", transactions: { currency: "ETB" }, meta: { lastVerified: "2025-12-01" } }),
