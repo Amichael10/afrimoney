@@ -709,7 +709,7 @@ export const countries: Country[] = [
   {
     name: "Djibouti", flag: "🇩🇯", code: "DJ",
     providers: [
-      p({ name: "D-Money (Djibouti Telecom)", color: "#006B3F", shortName: "DM", domain: "djiboutitelecom.dj", status: "active", transactions: { currency: "DJF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "D-Money (Djibouti Telecom)", color: "#1E3A8A", shortName: "DM", domain: "djiboutitelecom.dj", status: "active", transactions: { currency: "DJF" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
