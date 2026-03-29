@@ -78,9 +78,9 @@ const Index = () => {
     }
 
     return source;
-  }, [search, activeRegion, regions, sortBy, statusFilter]);
+  }, [search, activeRegion, regions, sortBy, statusFilter, africanCountries]);
 
-  const totalProviders = countries.reduce((s, c) => s + c.providers.length, 0);
+  const totalProviders = africanCountries.reduce((s, c) => s + c.providers.length, 0);
   const filteredProviders = filtered.reduce((s, c) => s + c.providers.length, 0);
 
   const scrollToContent = () => {
