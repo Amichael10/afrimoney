@@ -87,6 +87,13 @@ import tadawulPng from "@/assets/provider-logos/repo/tadawul.png";
 import mpesaDrcPng from "@/assets/provider-logos/repo/mpesa-drc.png";
 import mpesaTzPng from "@/assets/provider-logos/repo/mpesa-tz.png";
 import fawryPng from "@/assets/provider-logos/repo/fawry.png";
+import unitelMoneyWebp from "@/assets/provider-logos/repo/unitel-money.webp";
+import tigoPesaJpg from "@/assets/provider-logos/repo/tigo-pesa.jpg";
+import tmoneyAvif from "@/assets/provider-logos/repo/tmoney.avif";
+import instapayWebp from "@/assets/provider-logos/repo/instapay.webp";
+import cellcomWebp from "@/assets/provider-logos/repo/cellcom.webp";
+import equitelWebp from "@/assets/provider-logos/repo/equitel.webp";
+
 import wepayPng from "@/assets/provider-logos/repo/wepay.png";
 
 // Map of provider name patterns to local logo assets
