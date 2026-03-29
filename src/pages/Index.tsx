@@ -87,10 +87,10 @@ const Index = () => {
 
         {/* Top nav */}
         <div className="relative container mx-auto max-w-6xl px-4 pt-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src={afripayLogo} alt="AfriPay Directory" className="h-9 w-9 object-contain" />
-            <span className="font-display text-lg font-bold text-foreground tracking-tight hidden sm:inline">AfriPay Directory</span>
-          </Link>
+           <Link to="/" className="flex items-center gap-2.5 rounded-md border-2 border-foreground px-2.5 py-1.5 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card">
+              <img src={afripayLogo} alt="AfriPay" className="h-7 w-7 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-5 hidden sm:inline object-contain" />
+            </Link>
           <ThemeToggle />
         </div>
 
