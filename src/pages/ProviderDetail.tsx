@@ -119,7 +119,7 @@ export default function ProviderDetail() {
 
       <div className="container mx-auto max-w-5xl px-4 py-8 sm:py-12">
         {/* Hero */}
-        <div className="rounded-md border-2 border-foreground bg-card p-6 sm:p-8 mb-8 shadow-brutal-lg" style={{ borderTopColor: provider.color, borderTopWidth: 4 }}>
+        <div className="rounded-md border-2 border-foreground bg-card p-6 sm:p-8 mb-8 shadow-brutal-lg">
           <div className="flex flex-col sm:flex-row items-start gap-5">
             {/* Logo */}
             <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-md border-2 border-foreground bg-background overflow-hidden shadow-brutal-sm">
