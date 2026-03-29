@@ -557,7 +557,7 @@ export const countries: Country[] = [
           types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Savings"],
           currency: "ZWL / USD",
         },
-        brand: { primaryColor: "#006B3F" },
+        brand: { primaryColor: "#0047AB" },
         meta: { lastVerified: "2025-12-01" },
       }),
       p({ name: "OneMoney (NetOne)", color: "#0072CE", shortName: "OM", domain: "netone.co.zw", parentCompany: "NetOne", status: "active", transactions: { currency: "ZWL" }, meta: { lastVerified: "2025-12-01" } }),
