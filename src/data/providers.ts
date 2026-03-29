@@ -592,7 +592,7 @@ export const countries: Country[] = [
     name: "Lesotho", flag: "🇱🇸", code: "LS",
     providers: [
       p({ name: "M-Pesa Lesotho (Vodacom)", color: "#E60000", shortName: "MP", domain: "vodacom.co.ls", parentCompany: "Vodacom", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Econet Lesotho eMoney", color: "#006B3F", shortName: "EL", domain: "econet.co.ls", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Econet Lesotho eMoney", color: "#003DA5", shortName: "EL", domain: "econet.co.ls", status: "active", transactions: { currency: "LSL" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
