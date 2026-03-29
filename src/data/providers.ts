@@ -628,7 +628,7 @@ export const countries: Country[] = [
     name: "Ethiopia", flag: "🇪🇹", code: "ET",
     providers: [
       p({
-        name: "Telebirr (Ethio Telecom)", color: "#006B3F", shortName: "TB", domain: "ethiotelecom.et",
+        name: "Telebirr (Ethio Telecom)", color: "#00A651", shortName: "TB", domain: "ethiotelecom.et",
         tagline: "Ethiopia's largest mobile money service",
         parentCompany: "Ethio Telecom (Government owned)",
         foundedYear: 2021,
