@@ -615,7 +615,7 @@ export const countries: Country[] = [
     providers: [
       p({ name: "MyT Money (Mauritius Telecom)", color: "#0072CE", shortName: "MT", domain: "mauritiustelecom.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Juice (MCB Group)", color: "#FF4500", shortName: "JC", domain: "mcb.mu", parentCompany: "MCB Group", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "MYT (Emtel Pay)", color: "#006B3F", shortName: "MY", domain: "emtel.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "MYT (Emtel Pay)", color: "#E30613", shortName: "MY", domain: "emtel.com", status: "active", transactions: { currency: "MUR" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
