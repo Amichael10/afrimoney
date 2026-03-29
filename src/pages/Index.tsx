@@ -259,8 +259,8 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <img src={afripayLogo} alt="AfriPay Directory" className="h-7 w-7 object-contain" />
-              <span className="font-display text-sm font-bold text-foreground">AfriPay Directory</span>
+              <img src={afripayLogo} alt="AfriPay" className="h-6 w-6 object-contain" />
+              <img src={afripayWordmark} alt="AfriPay Directory" className="h-4 object-contain" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {countries.length} countries
