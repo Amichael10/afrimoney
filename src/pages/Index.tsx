@@ -21,7 +21,7 @@ const Index = () => {
   const regions = useMemo(() => {
     const regionMap: Record<string, typeof countries> = {
       "West Africa": [], "East Africa": [], "Southern Africa": [],
-      "Central Africa": [], "North Africa": [], "Other Regions": [],
+      "Central Africa": [], "North Africa": [],
     };
     const westAfrica = ["NG", "GH", "SN", "CI", "ML", "BF", "NE", "GW", "GM", "SL", "LR", "TG", "BJ", "CV", "GN"];
     const eastAfrica = ["KE", "TZ", "UG", "RW", "ET", "SO", "SS", "SD", "ER", "DJ", "KM", "MG", "MU", "SC"];
