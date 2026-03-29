@@ -50,8 +50,8 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
     }
     const size = 200;
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-      <rect width="${size}" height="${size}" rx="8" fill="${provider.color}"/>
-      <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="${provider.textColor || '#fff'}">${provider.shortName || provider.name.slice(0, 2)}</text>
+      <rect width="${size}" height="${size}" rx="8" fill="#E5E7EB"/>
+      <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="48" fill="#374151">${provider.shortName || provider.name.slice(0, 2)}</text>
     </svg>`;
     const blob = new Blob([svg], { type: "image/svg+xml" });
     const url = URL.createObjectURL(blob);
@@ -78,8 +78,7 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
         />
       ) : (
         <div
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-xs font-bold font-display border-2 border-foreground"
-          style={{ backgroundColor: provider.color, color: provider.textColor || "#fff" }}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-xs font-bold font-display border-2 border-foreground bg-muted text-foreground"
         >
           {provider.shortName || provider.name.slice(0, 2)}
         </div>
