@@ -536,7 +536,7 @@ export const countries: Country[] = [
     name: "Zimbabwe", flag: "🇿🇼", code: "ZW",
     providers: [
       p({
-        name: "EcoCash (Econet)", color: "#006B3F", shortName: "EC", domain: "econet.co.zw",
+        name: "EcoCash (Econet)", color: "#0047AB", shortName: "EC", domain: "econet.co.zw",
         tagline: "Zimbabwe's leading mobile money platform",
         parentCompany: "Econet Wireless / Cassava Technologies",
         foundedYear: 2011,
