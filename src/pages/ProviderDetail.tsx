@@ -113,7 +113,10 @@ export default function ProviderDetail() {
             <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
             <span className="text-sm font-bold text-foreground truncate max-w-[120px] sm:max-w-none">{provider.name}</span>
           </div>
-          <ThemeToggle />
+           <div className="flex items-center gap-2">
+              <GithubLink />
+              <ThemeToggle />
+            </div>
         </div>
       </nav>
 
