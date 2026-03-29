@@ -334,7 +334,7 @@ export const countries: Country[] = [
     name: "Côte d'Ivoire", flag: "🇨🇮", code: "CI",
     providers: [
       p({ name: "MTN MoMo Côte d'Ivoire", color: "#FFCC00", textColor: "#000", shortName: "MTN", domain: "mtn.ci", tagline: "MTN's mobile money in Côte d'Ivoire", parentCompany: "MTN Group", status: "active", coverage: { platforms: ["USSD", "Android", "Agent Network"] }, developer: { hasApi: true, apiDocsUrl: "https://momodeveloper.mtn.com" }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments"], currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "Orange Money Côte d'Ivoire", color: "#FF6600", shortName: "OM", domain: "orange.ci", tagline: "Orange's mobile money in Côte d'Ivoire", parentCompany: "Orange Group", status: "active", transactions: { types: ["P2P", "Bill Payments", "International Remittance"], currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Orange Money Côte d'Ivoire", color: "#ff6600", shortName: "OM", domain: "orange.ci", tagline: "Mobile money service by Orange Côte d'Ivoire", parentCompany: "Orange Côte d'Ivoire", status: "active", website: "https://www.orange-ci.com/", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*144#", languages: ["French"] }, developer: { hasApi: true, apiDocsUrl: "https://developer.orange.com/" }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Airtime Top-up", "Savings"], currency: "XOF" }, meta: { lastVerified: "2025-12-01", sources: [{ label: "Official Site", url: "https://www.orange-ci.com/" }] } }),
       p({
         name: "Wave Côte d'Ivoire", color: "#1B2A4A", shortName: "WV", domain: "wave.com",
         tagline: "Free, instant mobile money",
@@ -346,8 +346,8 @@ export const countries: Country[] = [
         transactions: { types: ["P2P", "Merchant Payments", "Bill Payments"], feeStructure: "1% flat fee on cash-out", currency: "XOF" },
         meta: { lastVerified: "2025-12-01" },
       }),
-      p({ name: "Moov Money Côte d'Ivoire", color: "#0072CE", shortName: "MV", domain: "moov-africa.ci", status: "active", parentCompany: "Moov Africa (Maroc Telecom Group)", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "YAS (MTN)", color: "#FFCC00", textColor: "#000", shortName: "YAS", domain: "mtn.ci", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "Moov Money Côte d'Ivoire", color: "#00b0f0", shortName: "MV", domain: "moov.ci", tagline: "Mobile money service by Moov Africa Côte d'Ivoire", parentCompany: "Moov Africa Côte d'Ivoire", status: "active", website: "https://www.moov.ci/", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*126#", languages: ["French"] }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments", "Airtime Top-up", "Savings"], currency: "XOF" }, meta: { lastVerified: "2025-12-01", sources: [{ label: "Official Site", url: "https://www.moov.ci/" }] } }),
+      p({ name: "YAS (MTN)", color: "#00cc00", shortName: "YAS", domain: "mtn.ci", tagline: "MTN Mobile Money service in Côte d'Ivoire", aliases: ["YAS MTN", "YAS Mobile Money", "MTN YAS Côte d'Ivoire"], parentCompany: "MTN Côte d'Ivoire", status: "active", website: "https://www.mtn.ci/", coverage: { platforms: ["USSD", "Android", "iOS", "Agent Network"], ussdCode: "*126#", languages: ["French"] }, developer: { hasApi: true, apiDocsUrl: "https://www.mtn.com", integrationPlatforms: ["WorldRemit"] }, transactions: { types: ["P2P", "Merchant Payments", "Bill Payments", "International Remittance", "Airtime Top-up", "Savings", "Loans"], currency: "XOF" }, meta: { lastVerified: "2025-12-01", sources: [{ label: "Official Site", url: "https://www.mtn.ci/" }] } }),
     ],
   },
   {
