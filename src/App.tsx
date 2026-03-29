@@ -23,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/provider/:slug" element={<ProviderDetail />} />
             <Route path="/tools/logo-prep" element={<LogoPrep />} />
+            <Route path="/brand" element={<Brand />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
