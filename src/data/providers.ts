@@ -503,7 +503,7 @@ export const countries: Country[] = [
     name: "Togo", flag: "🇹🇬", code: "TG",
     providers: [
       p({ name: "Flooz (Moov Africa Togo)", color: "#0072CE", shortName: "FL", domain: "moov-africa.tg", parentCompany: "Moov Africa", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "TMoney (Togocel)", color: "#006B3F", shortName: "TM", domain: "togocel.tg", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "TMoney (Togocel)", color: "#0033A0", shortName: "TM", domain: "togocel.tg", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Togo Pesa", color: "#FF6600", shortName: "TP", status: "active", transactions: { currency: "XOF" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
