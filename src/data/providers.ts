@@ -529,7 +529,7 @@ export const countries: Country[] = [
     providers: [
       p({ name: "Unitel Money", color: "#FF6600", shortName: "UM", domain: "unitel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
       p({ name: "Africell Money Angola", color: "#003366", shortName: "AC", domain: "africell.ao", parentCompany: "Africell", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
-      p({ name: "AfriMoney (Movicel)", color: "#006B3F", shortName: "AF", domain: "movicel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
+      p({ name: "AfriMoney (Movicel)", color: "#F7941D", textColor: "#000", shortName: "AF", domain: "movicel.co.ao", status: "active", transactions: { currency: "AOA" }, meta: { lastVerified: "2025-12-01" } }),
     ],
   },
   {
