@@ -256,11 +256,8 @@ const Index = () => {
       <footer className="border-t-2 border-foreground bg-card py-8">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-foreground bg-primary">
-                <Smartphone className="h-3.5 w-3.5 text-primary-foreground" />
-              </div>
-              <span className="font-display text-sm font-bold text-foreground">AfriPay Directory</span>
+            <div className="flex items-center">
+              <img src={afripayLogo} alt="AfriPay Directory" className="h-7" />
             </div>
             <p className="text-sm text-muted-foreground text-center font-medium">
               Open-source directory — {totalProviders} providers across {countries.length} countries
