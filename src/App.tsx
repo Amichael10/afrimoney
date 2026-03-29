@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index.tsx";
 import ProviderDetail from "./pages/ProviderDetail.tsx";
 import LogoPrep from "./pages/LogoPrep.tsx";
+import Brand from "./pages/Brand.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
