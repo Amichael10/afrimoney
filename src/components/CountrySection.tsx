@@ -3,26 +3,50 @@ import ProviderCard from "./ProviderCard";
 
 interface CountrySectionProps {
   country: Country;
+  viewMode?: "grid" | "list";
 }
 
-const CountrySection = ({ country }: CountrySectionProps) => {
+const CountrySection = ({ country, viewMode = "grid" }: CountrySectionProps) => {
   return (
-    <div className="animate-fade-in">
-      <div className="mb-4 flex items-center gap-2.5">
-        <span className={`fi fi-${country.code.toLowerCase()} text-2xl leading-none`} />
-        <h2 className="font-display text-lg font-bold text-foreground">
+    <section className="animate-fc-enter">
+      <div className="mb-4 flex items-center gap-3">
+        <span
+          className={`fi fi-${country.code.toLowerCase()} rounded-[3px] text-xl leading-none shadow-sm`}
+          aria-hidden="true"
+        />
+        <h2 className="font-display text-lg font-bold tracking-tight text-foreground">
           {country.name}
         </h2>
-        <span className="rounded-md border-2 border-foreground bg-secondary text-secondary-foreground px-2 py-0.5 text-xs font-bold">
-          {country.providers.length}
+        <span className="font-mono text-xs text-muted-foreground tabular-nums">
+          {country.providers.length} {country.providers.length === 1 ? "provider" : "providers"}
         </span>
+        <div className="h-px flex-1 bg-border" />
       </div>
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {country.providers.map((provider) => (
-          <ProviderCard key={provider.name} provider={provider} />
-        ))}
-      </div>
-    </div>
+
+      {viewMode === "list" ? (
+        <div className="overflow-hidden rounded-xl border border-border bg-card">
+          {country.providers.map((provider, idx) => (
+            <ProviderCard
+              key={`${country.code}-${provider.slug}-${idx}`}
+              provider={provider}
+              variant="row"
+              countryName={country.name}
+              countryCode={country.code}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3">
+          {country.providers.map((provider, idx) => (
+            <ProviderCard
+              key={`${country.code}-${provider.slug}-${idx}`}
+              provider={provider}
+              variant="grid"
+            />
+          ))}
+        </div>
+      )}
+    </section>
   );
 };
 

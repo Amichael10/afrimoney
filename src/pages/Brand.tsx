@@ -1,55 +1,250 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Copy, Check } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { GithubLink } from "@/components/GithubLink";
-
-import afripayWordmark from "@/assets/brand/afripay-wordmark.svg";
-import afripayWordmarkWhite from "@/assets/brand/afripay-wordmark-white.svg";
-import afriIcon from "@/assets/brand/afri-icon.png";
-import afriIconAlt from "@/assets/brand/afri-icon-alt.png";
+import { ArrowLeft, Copy, Check, Download, Terminal, CheckCircle2 } from "lucide-react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { toast } from "sonner";
 
 const BRAND_COLORS = [
-  { name: "Dark Green", hex: "#01433F", hsl: "177 97% 13%", usage: "Primary, text, borders" },
-  { name: "Gold", hex: "#E6C15D", hsl: "44 75% 63%", usage: "Accent, highlights" },
-  { name: "Cream", hex: "#F7F3EB", hsl: "45 40% 94%", usage: "Backgrounds" },
-  { name: "Dark Green Deep", hex: "#01332F", hsl: "177 97% 10%", usage: "Shadows, emphasis" },
-  { name: "White", hex: "#FDFCFA", hsl: "45 40% 98%", usage: "Cards, light surfaces" },
+  { name: "Orange", hex: "#FF4C00", hsl: "18 100% 50%", token: "--brand-orange", usage: "Primary mark, CTAs, active highlights" },
+  { name: "Charcoal", hex: "#0E0E0E", hsl: "0 0% 5.5%", token: "--brand-charcoal", usage: "Dark canvas, primary wordmark ink" },
+  { name: "Off-white", hex: "#F7F7F7", hsl: "0 0% 96.9%", token: "--brand-off-white", usage: "Light canvas background" },
+  { name: "Cloud", hex: "#EAEAEA", hsl: "0 0% 91.8%", token: "--brand-cloud", usage: "Hairline borders, subtle dividers" },
+  { name: "Peach", hex: "#FFE6D9", hsl: "20 100% 92.5%", token: "--brand-peach", usage: "Warm tint containers & icon surfaces" },
 ];
+
+const CSS_TOKENS = `:root {
+  --brand-orange: #FF4C00;
+  --brand-charcoal: #0E0E0E;
+  --brand-off-white: #F7F7F7;
+  --brand-cloud: #EAEAEA;
+  --brand-peach: #FFE6D9;
+  --brand-font: "Suisse Intl", Inter, sans-serif;
+}`;
+
+const HORIZONTAL_LOGOS = [
+  {
+    title: "Horizontal — Primary",
+    subtitle: "Use on light backgrounds (#F7F7F7 / #FFFFFF)",
+    src: "/assets/aistudio/afrimoney-horizontal-primary_0604f76c.png",
+    downloadName: "afrimoney-horizontal-primary.png",
+    bg: "bg-[#F7F7F7]",
+  },
+  {
+    title: "Horizontal — Reversed",
+    subtitle: "Use on dark backgrounds (#0E0E0E)",
+    src: "/assets/aistudio/afrimoney-horizontal-reversed_b391116d.png",
+    downloadName: "afrimoney-horizontal-reversed.png",
+    bg: "bg-[#0E0E0E]",
+  },
+  {
+    title: "Horizontal — Black",
+    subtitle: "Single-color monochrome on light",
+    src: "/assets/aistudio/afrimoney-horizontal-black_73b045ff.png",
+    downloadName: "afrimoney-horizontal-black.png",
+    bg: "bg-[#F7F7F7]",
+  },
+  {
+    title: "Horizontal — White",
+    subtitle: "Single-color monochrome on dark",
+    src: "/assets/aistudio/afrimoney-horizontal-white_53a2de33.png",
+    downloadName: "afrimoney-horizontal-white.png",
+    bg: "bg-[#0E0E0E]",
+  },
+];
+
+const STACKED_LOGOS = [
+  {
+    title: "Stacked — Primary",
+    src: "/assets/aistudio/afrimoney-stacked-primary_405c0857.png",
+    downloadName: "afrimoney-stacked-primary.png",
+    bg: "bg-[#F7F7F7]",
+  },
+  {
+    title: "Stacked — Reversed",
+    src: "/assets/aistudio/afrimoney-stacked-reversed_256aa491.png",
+    downloadName: "afrimoney-stacked-reversed.png",
+    bg: "bg-[#0E0E0E]",
+  },
+  {
+    title: "Stacked — Black",
+    src: "/assets/aistudio/afrimoney-stacked-black_94f40adf.png",
+    downloadName: "afrimoney-stacked-black.png",
+    bg: "bg-[#F7F7F7]",
+  },
+  {
+    title: "Stacked — White",
+    src: "/assets/aistudio/afrimoney-stacked-white_13feb246.png",
+    downloadName: "afrimoney-stacked-white.png",
+    bg: "bg-[#0E0E0E]",
+  },
+];
+
+const MARKS_AND_WORDMARKS = [
+  {
+    title: "Mark — Primary",
+    src: "/assets/aistudio/afrimoney-mark-primary_35aab509.png",
+    downloadName: "afrimoney-mark-primary.png",
+    bg: "bg-[#F7F7F7]",
+    imgClass: "h-20 w-auto",
+  },
+  {
+    title: "Mark — Reversed",
+    src: "/assets/aistudio/afrimoney-mark-reversed_35aab509.png",
+    downloadName: "afrimoney-mark-reversed.png",
+    bg: "bg-[#0E0E0E]",
+    imgClass: "h-20 w-auto",
+  },
+  {
+    title: "Mark — Black",
+    src: "/assets/aistudio/afrimoney-mark-black_13c81170.png",
+    downloadName: "afrimoney-mark-black.png",
+    bg: "bg-[#F7F7F7]",
+    imgClass: "h-20 w-auto",
+  },
+  {
+    title: "Mark — White",
+    src: "/assets/aistudio/afrimoney-mark-white_28d1a86a.png",
+    downloadName: "afrimoney-mark-white.png",
+    bg: "bg-[#0E0E0E]",
+    imgClass: "h-20 w-auto",
+  },
+  {
+    title: "Wordmark — Black",
+    src: "/assets/aistudio/afrimoney-wordmark-black_9c284fb4.png",
+    downloadName: "afrimoney-wordmark-black.png",
+    bg: "bg-[#F7F7F7]",
+    imgClass: "h-9 w-auto",
+  },
+  {
+    title: "Wordmark — White",
+    src: "/assets/aistudio/afrimoney-wordmark-white_f0231d4b.png",
+    downloadName: "afrimoney-wordmark-white.png",
+    bg: "bg-[#0E0E0E]",
+    imgClass: "h-9 w-auto",
+  },
+];
+
+type IconSize = 32 | 48 | 64 | 128 | 192 | 512 | 1024;
+const ICON_SIZES: IconSize[] = [32, 48, 64, 128, 192, 512, 1024];
+
+const ICON_ASSETS: Record<"dark" | "light" | "transparent", Record<IconSize, string>> = {
+  dark: {
+    32: "/assets/aistudio/afrimoney-icon-dark-32_944adfa4.png",
+    48: "/assets/aistudio/afrimoney-icon-dark-48_3736d990.png",
+    64: "/assets/aistudio/afrimoney-icon-dark-64_8bd73d47.png",
+    128: "/assets/aistudio/afrimoney-icon-dark-128_9cd5b53f.png",
+    192: "/assets/aistudio/afrimoney-icon-dark-192_89d288bf.png",
+    512: "/assets/aistudio/afrimoney-icon-dark-512_ecedd5dd.png",
+    1024: "/assets/aistudio/afrimoney-icon-dark-1024_c39cfa8e.png",
+  },
+  light: {
+    32: "/assets/aistudio/afrimoney-icon-light-32_35c90c84.png",
+    48: "/assets/aistudio/afrimoney-icon-light-48_6357a238.png",
+    64: "/assets/aistudio/afrimoney-icon-light-64_8d1f813d.png",
+    128: "/assets/aistudio/afrimoney-icon-light-128_c6591c52.png",
+    192: "/assets/aistudio/afrimoney-icon-light-192_4a613a4e.png",
+    512: "/assets/aistudio/afrimoney-icon-light-512_a13479a6.png",
+    1024: "/assets/aistudio/afrimoney-icon-light-1024_1fc04125.png",
+  },
+  transparent: {
+    32: "/assets/aistudio/afrimoney-icon-transparent-32_fec4ae07.png",
+    48: "/assets/aistudio/afrimoney-icon-transparent-48_431ed094.png",
+    64: "/assets/aistudio/afrimoney-icon-transparent-64_5b54f0f8.png",
+    128: "/assets/aistudio/afrimoney-icon-transparent-128_36b85a16.png",
+    192: "/assets/aistudio/afrimoney-icon-transparent-192_3d3a525f.png",
+    512: "/assets/aistudio/afrimoney-icon-transparent-512_9ef8738d.png",
+    1024: "/assets/aistudio/afrimoney-icon-transparent-1024_f77a995d.png",
+  },
+};
+
+function downloadAsset(src: string, filename: string) {
+  const a = document.createElement("a");
+  a.href = src;
+  a.download = filename;
+  a.click();
+  toast.success(`Downloaded ${filename}`);
+}
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
     <button
-      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-      className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+      onClick={() => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        toast.success(`Copied ${text}`);
+        setTimeout(() => setCopied(false), 1500);
+      }}
+      className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 font-mono text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
     >
-      {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+      {copied ? <Check className="h-3 w-3 text-emerald-500" /> : <Copy className="h-3 w-3" />}
       {copied ? "Copied" : "Copy"}
     </button>
   );
 }
 
-function LogoCard({ title, children, bg }: { title: string; children: React.ReactNode; bg: string }) {
+function AssetCard({
+  title,
+  subtitle,
+  src,
+  downloadName,
+  bg,
+  imgClass = "h-12 w-auto object-contain",
+}: {
+  title: string;
+  subtitle?: string;
+  src: string;
+  downloadName: string;
+  bg: string;
+  imgClass?: string;
+}) {
   return (
-    <div className="border-2 border-foreground shadow-brutal overflow-hidden">
-      <div className="px-4 py-2 border-b-2 border-foreground bg-card">
-        <span className="font-heading font-bold text-sm">{title}</span>
+    <div className="fc-card overflow-hidden rounded-xl border border-border bg-card">
+      <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-2.5">
+        <div className="min-w-0">
+          <span className="block truncate font-display text-xs font-semibold text-foreground">
+            {title}
+          </span>
+          {subtitle && (
+            <span className="block truncate text-[11px] text-muted-foreground">{subtitle}</span>
+          )}
+        </div>
+        <button
+          onClick={() => downloadAsset(src, downloadName)}
+          className="inline-flex shrink-0 items-center gap-1 rounded-md border border-border bg-background px-2.5 py-1 text-[11px] font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+          title={`Download ${downloadName}`}
+        >
+          <Download className="h-3 w-3" />
+          PNG
+        </button>
       </div>
-      <div className={`flex items-center justify-center p-8 min-h-[180px] ${bg}`}>
-        {children}
+      <div className={`flex min-h-[164px] items-center justify-center p-8 ${bg}`}>
+        <img src={src} alt={title} className={imgClass} />
       </div>
     </div>
   );
 }
 
-function SocialPreview({ title, width, height, children }: { title: string; width: number; height: number; children: React.ReactNode }) {
+function SocialPreview({
+  title,
+  width,
+  height,
+  children,
+}: {
+  title: string;
+  width: number;
+  height: number;
+  children: React.ReactNode;
+}) {
   const aspect = width / height;
   return (
-    <div className="border-2 border-foreground shadow-brutal overflow-hidden">
-      <div className="px-4 py-2 border-b-2 border-foreground bg-card flex items-center justify-between">
-        <span className="font-heading font-bold text-sm">{title}</span>
-        <span className="text-xs text-muted-foreground">{width}×{height}</span>
+    <div className="overflow-hidden rounded-xl border border-border bg-card">
+      <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
+        <span className="font-display text-xs font-semibold text-foreground">{title}</span>
+        <span className="font-mono text-[11px] text-muted-foreground tabular-nums">
+          {width}×{height}
+        </span>
       </div>
       <div className="relative w-full" style={{ aspectRatio: aspect }}>
         {children}
@@ -59,175 +254,407 @@ function SocialPreview({ title, width, height, children }: { title: string; widt
 }
 
 export default function Brand() {
+  const [selectedIconSize, setSelectedIconSize] = useState<IconSize>(512);
+  const [copiedTokens, setCopiedTokens] = useState(false);
+
+  const handleCopyTokens = async () => {
+    await navigator.clipboard.writeText(CSS_TOKENS);
+    setCopiedTokens(true);
+    toast.success("Copied CSS tokens");
+    setTimeout(() => setCopiedTokens(false), 1500);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground font-body">
-      {/* Header */}
-      <header className="border-b-2 border-foreground bg-card">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link
-              to="/"
-              className="rounded-md border-2 border-foreground p-2 shadow-brutal-sm hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all bg-card"
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Navbar />
+
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 sm:py-14 space-y-16">
+        {/* Header */}
+        <div className="border-b border-border pb-8">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Back to Directory
+          </Link>
+          <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h1 className="font-display text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+                Afrimoney Brand Kit
+              </h1>
+              <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">
+                A directory of Africa's fintech ecosystem. Official logos, app icons, clear-space rules, color tokens, and typography specifications.
+              </p>
+            </div>
+            <button
+              onClick={() =>
+                downloadAsset("/assets/aistudio/brand-board_323b1189.png", "afrimoney-brand-board.png")
+              }
+              className="fc-btn-primary inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90 whitespace-nowrap"
             >
-              <ArrowLeft className="h-[18px] w-[18px]" />
-            </Link>
-            <h1 className="font-heading text-2xl font-bold">Brand Assets</h1>
-          </div>
-          <div className="flex items-center gap-2">
-            <GithubLink />
-            <ThemeToggle />
+              <Download className="h-3.5 w-3.5" />
+              Download Brand Board
+            </button>
           </div>
         </div>
-      </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-10 space-y-16">
-        {/* Logos Section */}
+        {/* 01. Brand Board & Usage Guidelines */}
         <section>
-          <h2 className="font-heading text-xl font-bold mb-6 border-b-2 border-foreground pb-2">Logos</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <LogoCard title="Wordmark — Dark" bg="bg-[#F7F3EB]">
-              <img src={afripayWordmark} alt="AfriPay wordmark dark" className="h-16 w-auto" />
-            </LogoCard>
-            <LogoCard title="Wordmark — Light" bg="bg-[#01433F]">
-              <img src={afripayWordmarkWhite} alt="AfriPay wordmark white" className="h-16 w-auto" />
-            </LogoCard>
-            <LogoCard title="Icon — Primary" bg="bg-[#F7F3EB]">
-              <img src={afriIcon} alt="AfriPay icon" className="h-24 w-auto" />
-            </LogoCard>
-            <LogoCard title="Icon — Alt" bg="bg-[#F7F3EB]">
-              <img src={afriIconAlt} alt="AfriPay icon alt" className="h-24 w-auto" />
-            </LogoCard>
-            <LogoCard title="Icon on Dark" bg="bg-[#01433F]">
-              <img src={afriIcon} alt="AfriPay icon on dark" className="h-24 w-auto" />
-            </LogoCard>
-            <LogoCard title="Wordmark — Gold bg" bg="bg-[#E6C15D]">
-              <img src={afripayWordmark} alt="AfriPay wordmark on gold" className="h-16 w-auto" />
-            </LogoCard>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              01. Brand Overview & Usage Rules
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">Guidelines</span>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-12">
+            <div className="overflow-hidden rounded-xl border border-border bg-card lg:col-span-8">
+              <img
+                src="/assets/aistudio/brand-board_323b1189.png"
+                alt="Afrimoney Official Brand Board"
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="flex flex-col justify-between gap-6 rounded-xl border border-border bg-card p-6 lg:col-span-4">
+              <div className="space-y-4">
+                <h3 className="font-display text-sm font-bold text-foreground">
+                  Usage Guidelines
+                </h3>
+                <ul className="space-y-3 text-xs leading-relaxed text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>
+                      Use <strong className="text-foreground">Primary</strong> lockups on light backgrounds (<code className="font-mono">#F7F7F7</code> / <code className="font-mono">#FFFFFF</code>).
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>
+                      Use <strong className="text-foreground">Reversed</strong> lockups on dark surfaces (<code className="font-mono">#0E0E0E</code>).
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>
+                      Use <strong className="text-foreground">Monochrome (Black/White)</strong> for single-color print or watermark applications.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>
+                      Maintain <strong className="text-foreground">clear space ≥ 0.25×</strong> the mark height around all sides.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span>
+                      Assets are transparent raster PNGs; the Africa continent cutout inside the A mark is transparent.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Clear space diagram */}
+              <div className="rounded-lg border border-border bg-muted/40 p-4">
+                <div className="mb-2 flex items-center justify-between font-mono text-[11px] text-muted-foreground">
+                  <span>Clear Space Specification</span>
+                  <span>x = ¼ mark height</span>
+                </div>
+                <div className="relative flex items-center justify-center rounded-md border border-dashed border-primary/50 bg-white p-6 dark:bg-zinc-950">
+                  <span className="absolute left-2 top-1.5 font-mono text-[10px] text-primary">x</span>
+                  <span className="absolute right-2 top-1.5 font-mono text-[10px] text-primary">x</span>
+                  <span className="absolute left-2 bottom-1.5 font-mono text-[10px] text-primary">x</span>
+                  <span className="absolute right-2 bottom-1.5 font-mono text-[10px] text-primary">x</span>
+                  <img
+                    src="/assets/aistudio/afrimoney-mark-primary_35aab509.png"
+                    alt="Clear space mark example"
+                    className="h-14 w-auto"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Color Palette */}
+        {/* 02. Horizontal Lockups */}
         <section>
-          <h2 className="font-heading text-xl font-bold mb-6 border-b-2 border-foreground pb-2">Color Palette</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {BRAND_COLORS.map((c) => (
-              <div key={c.hex} className="border-2 border-foreground shadow-brutal-sm overflow-hidden">
-                <div className="h-24" style={{ backgroundColor: c.hex }} />
-                <div className="p-3 bg-card space-y-1">
-                  <p className="font-heading font-bold text-sm">{c.name}</p>
-                  <div className="flex items-center justify-between">
-                    <code className="text-xs text-muted-foreground">{c.hex}</code>
-                    <CopyButton text={c.hex} />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <code className="text-xs text-muted-foreground">{c.hsl}</code>
-                    <CopyButton text={c.hsl} />
-                  </div>
-                  <p className="text-xs text-muted-foreground">{c.usage}</p>
-                </div>
-              </div>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              02. Horizontal Lockups
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">4 Variants · PNG</span>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {HORIZONTAL_LOGOS.map((item) => (
+              <AssetCard key={item.title} {...item} imgClass="h-10 sm:h-12 w-auto object-contain" />
             ))}
           </div>
         </section>
 
-        {/* Typography */}
+        {/* 03. Stacked Lockups */}
         <section>
-          <h2 className="font-heading text-xl font-bold mb-6 border-b-2 border-foreground pb-2">Typography</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border-2 border-foreground shadow-brutal p-6 bg-card">
-              <p className="text-xs text-muted-foreground mb-2">Headings</p>
-              <p className="font-heading text-4xl font-bold">Space Grotesk</p>
-              <p className="font-heading text-lg mt-2">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-              <p className="font-heading text-lg">abcdefghijklmnopqrstuvwxyz</p>
-              <p className="font-heading text-lg">0123456789</p>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              03. Stacked Lockups
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">4 Variants · PNG</span>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {STACKED_LOGOS.map((item) => (
+              <AssetCard key={item.title} {...item} imgClass="h-24 w-auto object-contain" />
+            ))}
+          </div>
+        </section>
+
+        {/* 04. Marks & Wordmarks */}
+        <section>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              04. Standalone Marks & Wordmarks
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">Transparent PNG</span>
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {MARKS_AND_WORDMARKS.map((item) => (
+              <AssetCard key={item.title} {...item} />
+            ))}
+          </div>
+        </section>
+
+        {/* 05. App & Favicon Icons */}
+        <section>
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-border pb-3">
+            <div>
+              <h2 className="font-display text-xl font-bold text-foreground">
+                05. App & Favicon Icons
+              </h2>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Select pixel resolution to preview and download square icons for favicons, PWAs, and social avatars.
+              </p>
             </div>
-            <div className="border-2 border-foreground shadow-brutal p-6 bg-card">
-              <p className="text-xs text-muted-foreground mb-2">Body</p>
-              <p className="font-body text-4xl font-bold">DM Sans</p>
-              <p className="font-body text-lg mt-2">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-              <p className="font-body text-lg">abcdefghijklmnopqrstuvwxyz</p>
-              <p className="font-body text-lg">0123456789</p>
+
+            <div className="flex flex-wrap items-center gap-1 rounded-lg border border-border bg-card p-1">
+              {ICON_SIZES.map((sz) => (
+                <button
+                  key={sz}
+                  onClick={() => setSelectedIconSize(sz)}
+                  className={`rounded-md px-2.5 py-1 font-mono text-xs font-medium transition-colors tabular-nums ${
+                    selectedIconSize === sz
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {sz}px
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            <AssetCard
+              title={`Dark Square (${selectedIconSize}×${selectedIconSize})`}
+              subtitle="Charcoal #0E0E0E tile"
+              src={ICON_ASSETS.dark[selectedIconSize]}
+              downloadName={`afrimoney-icon-dark-${selectedIconSize}.png`}
+              bg="bg-muted/30"
+              imgClass="h-24 w-24 rounded-2xl object-contain shadow-sm"
+            />
+            <AssetCard
+              title={`Light Square (${selectedIconSize}×${selectedIconSize})`}
+              subtitle="Off-white #F7F7F7 tile"
+              src={ICON_ASSETS.light[selectedIconSize]}
+              downloadName={`afrimoney-icon-light-${selectedIconSize}.png`}
+              bg="bg-muted/30"
+              imgClass="h-24 w-24 rounded-2xl border border-border object-contain shadow-sm"
+            />
+            <AssetCard
+              title={`Transparent (${selectedIconSize}×${selectedIconSize})`}
+              subtitle="Alpha channel background"
+              src={ICON_ASSETS.transparent[selectedIconSize]}
+              downloadName={`afrimoney-icon-transparent-${selectedIconSize}.png`}
+              bg="fc-checkerboard"
+              imgClass="h-24 w-24 object-contain"
+            />
+          </div>
+        </section>
+
+        {/* 06. Brand Colors & CSS Tokens */}
+        <section>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              06. Color System & Tokens
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">tokens.css</span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {BRAND_COLORS.map((c) => (
+              <div
+                key={c.hex}
+                className="fc-card overflow-hidden rounded-xl border border-border bg-card"
+              >
+                <div className="h-24 border-b border-border" style={{ backgroundColor: c.hex }} />
+                <div className="space-y-2 p-3.5">
+                  <p className="font-display text-sm font-bold text-foreground">{c.name}</p>
+                  <div className="flex items-center justify-between">
+                    <code className="font-mono text-xs text-muted-foreground">{c.hex}</code>
+                    <CopyButton text={c.hex} />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <code className="font-mono text-[11px] text-muted-foreground">{c.hsl}</code>
+                    <CopyButton text={c.hsl} />
+                  </div>
+                  <p className="text-[11px] leading-snug text-muted-foreground">{c.usage}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 overflow-hidden rounded-xl border border-border bg-[#111114] text-zinc-200">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
+              <span className="inline-flex items-center gap-2 font-mono text-xs text-zinc-400">
+                <Terminal className="h-3.5 w-3.5 text-primary" />
+                tokens.css
+              </span>
+              <button
+                onClick={handleCopyTokens}
+                className="inline-flex items-center gap-1.5 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] text-zinc-300 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {copiedTokens ? <Check className="h-3 w-3 text-emerald-400" /> : <Copy className="h-3 w-3" />}
+                {copiedTokens ? "Copied" : "Copy CSS"}
+              </button>
+            </div>
+            <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-zinc-300">
+              <code>{CSS_TOKENS}</code>
+            </pre>
+          </div>
+        </section>
+
+        {/* 07. Typography */}
+        <section>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              07. Typography
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">Suisse Intl / Inter Fallback</span>
+          </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs text-primary mb-2">Brand Spec Primary</p>
+              <p className="font-display text-2xl font-extrabold tracking-tight">Suisse Intl</p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Regular (400), Medium (500), Bold (700). Licensed separately. Recommended alternative: Inter or Plus Jakarta Sans.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs text-primary mb-2">Web Display & UI</p>
+              <p className="font-display text-2xl font-extrabold tracking-tight">Plus Jakarta Sans</p>
+              <p className="mt-3 font-display text-sm text-muted-foreground break-all">
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ
+              </p>
+              <p className="font-display text-sm text-muted-foreground break-all">
+                abcdefghijklmnopqrstuvwxyz
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs text-primary mb-2">Code & Tabular Data</p>
+              <p className="font-mono text-2xl font-semibold">JetBrains Mono</p>
+              <p className="mt-3 font-mono text-xs text-muted-foreground break-all">
+                *955# · #FF4C00 · 0123456789
+              </p>
+              <p className="mt-1 font-mono text-xs text-muted-foreground">
+                tabular-nums aligned metrics
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Social Media Assets */}
+        {/* 08. Social Templates */}
         <section>
-          <h2 className="font-heading text-xl font-bold mb-6 border-b-2 border-foreground pb-2">Social Media</h2>
+          <div className="mb-6 flex items-baseline justify-between border-b border-border pb-3">
+            <h2 className="font-display text-xl font-bold text-foreground">
+              08. Social Templates
+            </h2>
+            <span className="font-mono text-xs text-muted-foreground">OG & Banners</span>
+          </div>
           <div className="grid grid-cols-1 gap-8">
-
-            {/* Twitter/X Banner — 1500×500 */}
             <SocialPreview title="Twitter / X Banner" width={1500} height={500}>
-              <div className="absolute inset-0 bg-[#01433F] flex items-center justify-between px-[8%]">
+              <div className="absolute inset-0 flex items-center justify-between bg-[#0E0E0E] px-[8%]">
                 <div className="flex flex-col gap-3">
-                  <img src={afripayWordmarkWhite} alt="AfriPay" className="h-12 md:h-16 w-auto" />
-                  <p className="text-[#E6C15D] font-heading text-sm md:text-base font-medium tracking-wide">
-                    Africa's Mobile Money Directory
+                  <img
+                    src="/assets/aistudio/afrimoney-horizontal-reversed_b391116d.png"
+                    alt="Afrimoney"
+                    className="h-10 w-auto object-contain md:h-14"
+                  />
+                  <p className="font-display text-sm font-medium tracking-wide text-[#FFE6D9] md:text-base">
+                    A directory of Africa's fintech ecosystem
                   </p>
                 </div>
-                <img src={afriIcon} alt="" className="h-20 md:h-32 w-auto opacity-30" />
+                <img
+                  src="/assets/aistudio/afrimoney-mark-reversed_35aab509.png"
+                  alt=""
+                  className="h-20 w-auto opacity-25 md:h-32"
+                />
               </div>
             </SocialPreview>
 
-            {/* OG Image — 1200×630 */}
             <SocialPreview title="Open Graph Image" width={1200} height={630}>
-              <div className="absolute inset-0 bg-[#01433F] flex flex-col items-center justify-center gap-4">
-                <img src={afriIcon} alt="" className="h-16 md:h-24 w-auto" />
-                <img src={afripayWordmarkWhite} alt="AfriPay" className="h-10 md:h-14 w-auto" />
-                <div className="h-1 w-16 bg-[#E6C15D] rounded-full" />
-                <p className="text-white/80 font-body text-sm md:text-base">
-                  Explore mobile money providers across Africa
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[#0E0E0E]">
+                <img
+                  src="/assets/aistudio/afrimoney-mark-reversed_35aab509.png"
+                  alt=""
+                  className="h-16 w-auto md:h-24"
+                />
+                <img
+                  src="/assets/aistudio/afrimoney-wordmark-white_f0231d4b.png"
+                  alt="Afrimoney"
+                  className="h-8 w-auto md:h-11"
+                />
+                <div className="h-1 w-14 rounded-full bg-[#FF4C00]" />
+                <p className="font-body text-sm text-[#EAEAEA]/80 md:text-base">
+                  A directory of Africa's fintech ecosystem
                 </p>
               </div>
             </SocialPreview>
 
-            {/* Square — 1080×1080 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <SocialPreview title="Instagram Post — Dark" width={1080} height={1080}>
-                <div className="absolute inset-0 bg-[#01433F] flex flex-col items-center justify-center gap-6 p-8">
-                  <img src={afriIcon} alt="" className="h-24 md:h-32 w-auto" />
-                  <img src={afripayWordmarkWhite} alt="AfriPay" className="h-10 md:h-12 w-auto" />
-                  <div className="h-1 w-12 bg-[#E6C15D] rounded-full" />
-                  <p className="text-white/70 font-heading text-xs text-center">
-                    Africa's Mobile Money Directory
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              <SocialPreview title="Instagram Post — Charcoal" width={1080} height={1080}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-[#0E0E0E] p-8">
+                  <img
+                    src="/assets/aistudio/afrimoney-stacked-reversed_256aa491.png"
+                    alt="Afrimoney"
+                    className="h-28 w-auto object-contain md:h-36"
+                  />
+                  <div className="h-1 w-12 rounded-full bg-[#FF4C00]" />
+                  <p className="text-center font-display text-xs text-[#EAEAEA]/75">
+                    A directory of Africa's fintech ecosystem
                   </p>
                 </div>
               </SocialPreview>
 
-              <SocialPreview title="Instagram Post — Gold" width={1080} height={1080}>
-                <div className="absolute inset-0 bg-[#E6C15D] flex flex-col items-center justify-center gap-6 p-8">
-                  <img src={afriIconAlt} alt="" className="h-24 md:h-32 w-auto" />
-                  <img src={afripayWordmark} alt="AfriPay" className="h-10 md:h-12 w-auto" />
-                  <div className="h-1 w-12 bg-[#01433F] rounded-full" />
-                  <p className="text-[#01433F]/70 font-heading text-xs text-center">
-                    Africa's Mobile Money Directory
+              <SocialPreview title="Instagram Post — Off-White" width={1080} height={1080}>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-[#F7F7F7] p-8">
+                  <img
+                    src="/assets/aistudio/afrimoney-stacked-primary_405c0857.png"
+                    alt="Afrimoney"
+                    className="h-28 w-auto object-contain md:h-36"
+                  />
+                  <div className="h-1 w-12 rounded-full bg-[#FF4C00]" />
+                  <p className="text-center font-display text-xs text-[#0E0E0E]/70">
+                    A directory of Africa's fintech ecosystem
                   </p>
                 </div>
               </SocialPreview>
             </div>
-
-            {/* LinkedIn Banner — 1584×396 */}
-            <SocialPreview title="LinkedIn Banner" width={1584} height={396}>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#01433F] to-[#01332F] flex items-center justify-between px-[6%]">
-                <div className="flex items-center gap-4 md:gap-8">
-                  <img src={afriIcon} alt="" className="h-14 md:h-20 w-auto opacity-80" />
-                  <div>
-                    <img src={afripayWordmarkWhite} alt="AfriPay" className="h-8 md:h-12 w-auto" />
-                    <p className="text-[#E6C15D] font-body text-xs md:text-sm mt-1">
-                      Mapping Africa's fintech ecosystem
-                    </p>
-                  </div>
-                </div>
-                <div className="hidden md:flex gap-2">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className="h-3 w-3 rounded-full bg-[#E6C15D]" style={{ opacity: 1 - i * 0.3 }} />
-                  ))}
-                </div>
-              </div>
-            </SocialPreview>
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,13 +1,35 @@
 import { useState, useRef, useMemo, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { countries } from "@/data/providers";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Check, ChevronDown, Upload, Download, Copy, ImageIcon } from "lucide-react";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  ArrowLeft,
+  Check,
+  ChevronDown,
+  Upload,
+  Download,
+  Copy,
+  ImageIcon,
+  Terminal,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 interface FlatProvider {
   name: string;
@@ -17,14 +39,21 @@ interface FlatProvider {
 }
 
 function slugToVarName(slug: string): string {
-  return slug
-    .split("-")
-    .map((part, i) => (i === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1)))
-    .join("") + "Png";
+  return (
+    slug
+      .split("-")
+      .map((part, i) =>
+        i === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1)
+      )
+      .join("") + "Png"
+  );
 }
 
 function nameToRegex(name: string): string {
-  return name.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s*");
+  return name
+    .toLowerCase()
+    .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+    .replace(/\s+/g, "\\s*");
 }
 
 const LogoPrep = () => {
@@ -51,7 +80,6 @@ const LogoPrep = () => {
     const url = URL.createObjectURL(f);
     setPreview(url);
 
-    // Resize to 256x256 via canvas
     const img = new Image();
     img.onload = () => {
       const canvas = document.createElement("canvas");
@@ -102,7 +130,7 @@ const LogoPrep = () => {
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    toast.success(`${label} copied!`);
+    toast.success(`${label} copied`);
   };
 
   const downloadFile = () => {
@@ -117,191 +145,182 @@ const LogoPrep = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 md:p-8">
-      <div className="max-w-2xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold font-heading text-foreground">Logo Prep Tool</h1>
-          <p className="text-muted-foreground mt-1">
-            Select a provider, upload a logo, get ready-to-paste code.
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Navbar />
+
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10 sm:px-6 sm:py-14 space-y-6">
+        <div className="border-b border-border pb-6">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Back to Directory
+          </Link>
+          <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-foreground">
+            Logo Prep Utility
+          </h1>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            Select a provider, normalize any logo to a centered 256×256 PNG, and copy the repository import snippet.
           </p>
         </div>
 
         {/* Step 1: Provider Picker */}
-        <Card className="border-2 border-border shadow-brutal">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg">1. Select Provider</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Popover open={open} onOpenChange={setOpen}>
-              <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={open}
-                  className="w-full justify-between border-2"
-                >
-                  {selected
-                    ? `${selected.name} (${selected.country})`
-                    : "Search providers..."}
-                  <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
-                <Command>
-                  <CommandInput placeholder="Search provider..." />
-                  <CommandList>
-                    <CommandEmpty>No provider found.</CommandEmpty>
-                    <CommandGroup className="max-h-64 overflow-y-auto">
-                      {allProviders.map((p) => (
-                        <CommandItem
-                          key={`${p.countryCode}-${p.slug}`}
-                          value={`${p.name} ${p.country}`}
-                          onSelect={() => {
-                            setSelected(p);
-                            setOpen(false);
-                          }}
-                        >
-                          <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              selected?.slug === p.slug && selected?.countryCode === p.countryCode
-                                ? "opacity-100"
-                                : "opacity-0"
-                            )}
-                          />
-                          <span className={`fi fi-${p.countryCode.toLowerCase()} mr-2`} />
-                          {p.name}
-                          <span className="ml-auto text-xs text-muted-foreground">{p.country}</span>
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            </Popover>
-          </CardContent>
-        </Card>
+        <section className="rounded-xl border border-border bg-card p-6">
+          <h2 className="mb-3 font-display text-sm font-bold text-foreground">
+            01. Select Provider
+          </h2>
+          <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className="w-full justify-between border-border bg-background font-normal"
+              >
+                {selected ? (
+                  <span className="flex items-center gap-2 font-medium">
+                    <span className={`fi fi-${selected.countryCode.toLowerCase()} rounded-[2px]`} />
+                    {selected.name}
+                    <span className="text-muted-foreground">· {selected.country}</span>
+                  </span>
+                ) : (
+                  <span className="text-muted-foreground">Search providers...</span>
+                )}
+                <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-[--radix-popover-trigger-width] p-0" align="start">
+              <Command>
+                <CommandInput placeholder="Search provider..." />
+                <CommandList>
+                  <CommandEmpty>No provider found.</CommandEmpty>
+                  <CommandGroup className="max-h-64 overflow-y-auto">
+                    {allProviders.map((p, idx) => (
+                      <CommandItem
+                        key={`${p.countryCode}-${p.slug}-${idx}`}
+                        value={`${p.name} ${p.country}`}
+                        onSelect={() => {
+                          setSelected(p);
+                          setOpen(false);
+                        }}
+                      >
+                        <Check
+                          className={cn(
+                            "mr-2 h-4 w-4 text-primary",
+                            selected?.slug === p.slug &&
+                              selected?.countryCode === p.countryCode
+                              ? "opacity-100"
+                              : "opacity-0"
+                          )}
+                        />
+                        <span className={`fi fi-${p.countryCode.toLowerCase()} mr-2`} />
+                        <span>{p.name}</span>
+                        <span className="ml-auto text-xs text-muted-foreground">
+                          {p.country}
+                        </span>
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+        </section>
 
         {/* Step 2: Upload */}
-        <Card className="border-2 border-border shadow-brutal">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-lg">2. Upload Logo</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={handleDrop}
-              onClick={() => fileInputRef.current?.click()}
-              className="border-2 border-dashed border-border rounded-lg p-8 text-center cursor-pointer hover:bg-muted/50 transition-colors"
-            >
-              {preview ? (
-                <div className="flex flex-col items-center gap-3">
+        <section className="rounded-xl border border-border bg-card p-6">
+          <h2 className="mb-3 font-display text-sm font-bold text-foreground">
+            02. Upload & Center Image (256×256)
+          </h2>
+          <div
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={handleDrop}
+            onClick={() => fileInputRef.current?.click()}
+            className="cursor-pointer rounded-xl border border-dashed border-border bg-muted/20 p-8 text-center transition-colors hover:border-primary/50 hover:bg-muted/40"
+          >
+            {preview ? (
+              <div className="flex flex-col items-center gap-3">
+                <div className="fc-checkerboard flex h-24 w-24 items-center justify-center rounded-xl border border-border p-2">
                   <img
                     src={preview}
-                    alt="Preview"
-                    className="w-24 h-24 object-contain rounded-lg border border-border"
+                    alt="Uploaded logo preview"
+                    className="h-full w-full object-contain"
                   />
-                  <p className="text-sm text-muted-foreground">{file?.name}</p>
-                  <p className="text-xs text-muted-foreground">Click or drop to replace</p>
                 </div>
-              ) : (
-                <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                  <Upload className="h-8 w-8" />
-                  <p className="text-sm font-medium">Drop image here or click to browse</p>
-                  <p className="text-xs">PNG, JPG, SVG, WebP</p>
+                <p className="font-mono text-xs text-foreground">{file?.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  Click or drop another image to replace
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card">
+                  <Upload className="h-4 w-4" />
                 </div>
-              )}
-            </div>
-            <Input
-              ref={fileInputRef}
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="hidden"
-            />
-          </CardContent>
-        </Card>
+                <p className="text-sm font-medium text-foreground">
+                  Drop logo here or click to browse
+                </p>
+                <p className="font-mono text-xs">PNG, JPG, SVG, WebP</p>
+              </div>
+            )}
+          </div>
+          <Input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+        </section>
 
         {/* Step 3: Generated Output */}
         {selected && file && (
-          <Card className="border-2 border-border shadow-brutal">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <ImageIcon className="h-5 w-5" />
-                3. Generated Code
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {/* Download */}
-              <div>
-                <p className="text-sm font-medium text-foreground mb-2">
-                  Renamed file: <code className="bg-muted px-1.5 py-0.5 rounded text-sm">{filename}</code>
-                </p>
-                <Button onClick={downloadFile} variant="outline" className="border-2 gap-2">
-                  <Download className="h-4 w-4" />
-                  Download to src/assets/provider-logos/repo/
-                </Button>
+          <section className="animate-fc-enter rounded-xl border border-border bg-card p-6 space-y-5">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+              <div className="flex items-center gap-2">
+                <ImageIcon className="h-4 w-4 text-primary" />
+                <h2 className="font-display text-sm font-bold text-foreground">
+                  03. Generated Asset & Code
+                </h2>
               </div>
+              <button
+                onClick={downloadFile}
+                className="fc-btn-primary inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                <Download className="h-3.5 w-3.5" />
+                Download {filename}
+              </button>
+            </div>
 
-              {/* Import line */}
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-sm font-medium text-foreground">Import statement</p>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => copyToClipboard(importLine, "Import")}
-                    className="h-7 gap-1 text-xs"
-                  >
-                    <Copy className="h-3 w-3" /> Copy
-                  </Button>
-                </div>
-                <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto border border-border">
-                  {importLine}
-                </pre>
+            <div className="overflow-hidden rounded-xl border border-border bg-[#111114] text-zinc-200">
+              <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
+                <span className="inline-flex items-center gap-2 font-mono text-[11px] text-zinc-400">
+                  <Terminal className="h-3.5 w-3.5 text-primary" />
+                  src/data/providerLogoOverrides.ts
+                </span>
+                <button
+                  onClick={() =>
+                    copyToClipboard(
+                      `${importLine}\n\n// Add to logoMap:\n${mapEntry}`,
+                      "Full snippet"
+                    )
+                  }
+                  className="inline-flex items-center gap-1 rounded border border-white/10 bg-white/5 px-2.5 py-1 font-mono text-[11px] text-zinc-300 hover:bg-white/10 hover:text-white"
+                >
+                  <Copy className="h-3 w-3" />
+                  Copy All
+                </button>
               </div>
-
-              {/* Map entry */}
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-sm font-medium text-foreground">logoMap entry</p>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => copyToClipboard(mapEntry, "Map entry")}
-                    className="h-7 gap-1 text-xs"
-                  >
-                    <Copy className="h-3 w-3" /> Copy
-                  </Button>
-                </div>
-                <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto border border-border">
-                  {mapEntry}
-                </pre>
-              </div>
-
-              {/* Full snippet */}
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <p className="text-sm font-medium text-foreground">Full snippet</p>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() =>
-                      copyToClipboard(`${importLine}\n\n// Add to logoMap:\n${mapEntry}`, "Full snippet")
-                    }
-                    className="h-7 gap-1 text-xs"
-                  >
-                    <Copy className="h-3 w-3" /> Copy All
-                  </Button>
-                </div>
-                <pre className="bg-muted p-3 rounded-lg text-xs overflow-x-auto border border-border whitespace-pre-wrap">
-                  {importLine}{"\n\n"}// Add to logoMap:{"\n"}{mapEntry}
-                </pre>
-              </div>
-            </CardContent>
-          </Card>
+              <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-zinc-300">
+                <code>{`${importLine}\n\n// Add to logoMap:\n${mapEntry}`}</code>
+              </pre>
+            </div>
+          </section>
         )}
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 };
